@@ -8,46 +8,6 @@
     <link rel="stylesheet" href="css/home.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
-    <style>
-        /* Inline CSS for specific changes */
-        .header {
-            background: transparent;
-            position: absolute;
-            width: 100%;
-            z-index: 1000;
-        }
-        .auction-card {
-            width: 200px;
-            margin: 10px;
-        }
-        .auction-card img {
-            height: 150px;
-            object-fit: cover;
-        }
-        .bidding-item-card {
-            display: flex;
-            height: 100px;
-            margin: 10px 0;
-            background: #fff;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        .bidding-item-card img {
-            width: 150px;
-            object-fit: cover;
-        }
-        .bidding-item-details {
-            padding: 10px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        .dark .bidding-item-card {
-            background: #333;
-        }
-    </style>
 </head>
 <body>
     <!-- Header -->
@@ -83,19 +43,18 @@
                         <li><a href="current-bidding.html">Current Bidding</a></li>
                         <li><a href="sell-item.html">Sell Item</a></li>
                         <li><a href="notifications.html">Notifications</a></li>
-                        <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </nav>
                 
                 <div class="user-actions">
-                    <div class="auth-buttons">
-                        <a href="login.html" class="btn btn-outline">Login</a>
-                        <a href="register.html" class="btn btn-primary">Register</a>
-                    </div>
                     <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
                         <i class="fas fa-moon"></i>
                         <i class="fas fa-sun"></i>
                     </button>
+                    <div class="auth-buttons">
+                        <a href="login.html" class="btn btn-outline">Login</a>
+                        <a href="register.html" class="btn btn-primary">Register</a>
+                    </div>
                 </div>
                 
                 <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
@@ -129,7 +88,6 @@
                         <li><a href="current-bidding.html">Current Bidding</a></li>
                         <li><a href="sell-item.html">Sell Item</a></li>
                         <li><a href="notifications.html">Notifications</a></li>
-                        <li><a href="contact.html">Contact</a></li>
                         <li><a href="login.html">Login</a></li>
                         <li><a href="register.html">Register</a></li>
                     </ul>
@@ -234,7 +192,7 @@
         </div>
     </section>
 
-    <!-- Featured Auctions -->
+    <!-- Combined Featured Auctions & Trending Items -->
     <section class="featured-auctions">
         <div class="container">
             <div class="section-header">
@@ -246,11 +204,15 @@
                     <div class="swiper-slide">
                         <div class="auction-card">
                             <div class="auction-image">
-                                <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-4.0.3&auto=format&fit=crop&w=687&q=80" alt="Rare First Edition Book">
+                                <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Rare First Edition Book">
                                 <div class="auction-badge">Hot</div>
                             </div>
                             <div class="auction-details">
                                 <h3>Rare First Edition Book</h3>
+                                <div class="auction-meta">
+                                    <span class="category"><i class="fas fa-tag"></i> Books</span>
+                                    <span class="bids"><i class="fas fa-gavel"></i> 15 bids</span>
+                                </div>
                                 <div class="auction-price">
                                     <span class="current-bid">Current Bid:</span>
                                     <span class="price">$1,250</span>
@@ -261,17 +223,22 @@
                                         <span class="countdown" data-end="2023-12-31T15:00:00">2d 14h</span>
                                     </div>
                                 </div>
+                                <a href="item-details.html" class="btn btn-outline btn-block">Place Bid</a>
                             </div>
                         </div>
                     </div>
                     <div class="swiper-slide">
                         <div class="auction-card">
                             <div class="auction-image">
-                                <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Vintage Leather Sofa">
+                                <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Vintage Leather Sofa">
                                 <div class="auction-badge">Featured</div>
                             </div>
                             <div class="auction-details">
                                 <h3>Vintage Leather Sofa</h3>
+                                <div class="auction-meta">
+                                    <span class="category"><i class="fas fa-tag"></i> Furniture</span>
+                                    <span class="bids"><i class="fas fa-gavel"></i> 8 bids</span>
+                                </div>
                                 <div class="auction-price">
                                     <span class="current-bid">Current Bid:</span>
                                     <span class="price">$850</span>
@@ -282,16 +249,21 @@
                                         <span class="countdown" data-end="2023-12-25T10:30:00">1d 8h</span>
                                     </div>
                                 </div>
+                                <a href="item-details.html" class="btn btn-outline btn-block">Place Bid</a>
                             </div>
                         </div>
                     </div>
                     <div class="swiper-slide">
                         <div class="auction-card">
                             <div class="auction-image">
-                                <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?ixlib=rb-4.0.3&auto=format&fit=crop&w=764&q=80" alt="Smart 4K TV">
+                                <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80" alt="Smart 4K TV">
                             </div>
                             <div class="auction-details">
                                 <h3>Smart 4K TV - 55 inch</h3>
+                                <div class="auction-meta">
+                                    <span class="category"><i class="fas fa-tag"></i> Electronics</span>
+                                    <span class="bids"><i class="fas fa-gavel"></i> 12 bids</span>
+                                </div>
                                 <div class="auction-price">
                                     <span class="current-bid">Current Bid:</span>
                                     <span class="price">$520</span>
@@ -302,6 +274,85 @@
                                         <span class="countdown" data-end="2024-01-04T22:00:00">3d 22h</span>
                                     </div>
                                 </div>
+                                <a href="item-details.html" class="btn btn-outline btn-block">Place Bid</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="auction-card">
+                            <div class="auction-image">
+                                <img src="https://images.unsplash.com/photo-1589998059171-988d887df646?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1476&q=80" alt="Antique Writing Desk">
+                                <div class="auction-badge">Ending Soon</div>
+                            </div>
+                            <div class="auction-details">
+                                <h3>Antique Writing Desk</h3>
+                                <div class="auction-meta">
+                                    <span class="category"><i class="fas fa-tag"></i> Furniture</span>
+                                    <span class="bids"><i class="fas fa-gavel"></i> 20 bids</span>
+                                </div>
+                                <div class="auction-price">
+                                    <span class="current-bid">Current Bid:</span>
+                                    <span class="price">$1,800</span>
+                                </div>
+                                <div class="auction-time">
+                                    <div class="time-left">
+                                        <i class="far fa-clock"></i> Ends in:
+                                        <span class="countdown" data-end="2023-12-24T09:15:00">18h 45m</span>
+                                    </div>
+                                </div>
+                                <a href="item-details.html" class="btn btn-outline btn-block">Place Bid</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="auction-card">
+                            <div class="auction-image">
+                                <img src="https://images.unsplash.com/photo-1603302576837-37561b2e2302?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1468&q=80" alt="Gaming Console">
+                                <div class="auction-badge">New</div>
+                            </div>
+                            <div class="auction-details">
+                                <h3>Latest Gaming Console</h3>
+                                <div class="auction-meta">
+                                    <span class="category"><i class="fas fa-tag"></i> Electronics</span>
+                                    <span class="bids"><i class="fas fa-gavel"></i> 25 bids</span>
+                                </div>
+                                <div class="auction-price">
+                                    <span class="current-bid">Current Bid:</span>
+                                    <span class="price">$450</span>
+                                </div>
+                                <div class="auction-time">
+                                    <div class="time-left">
+                                        <i class="far fa-clock"></i> Ends in:
+                                        <span class="countdown" data-end="2023-12-28T14:00:00">5d 2h</span>
+                                    </div>
+                                </div>
+                                <a href="item-details.html" class="btn btn-outline btn-block">Place Bid</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="auction-card">
+                            <div class="auction-image">
+                                <img src="https://images.unsplash.com/photo-1543002588-bfa74002ed7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Vintage Camera">
+                                <div class="auction-badge">Trending</div>
+                            </div>
+                            <div class="auction-details">
+                                <h3>Vintage Film Camera</h3>
+                                <div class="auction-meta">
+                                    <span class="category"><i class="fas fa-tag"></i> Electronics</span>
+                                    <span class="bids"><i class="fas fa-gavel"></i> 32 bids</span>
+                                </div>
+                                <div class="auction-price">
+                                    <span class="current-bid">Current Bid:</span>
+                                    <span class="price">$780</span>
+                                </div>
+                                <div class="auction-time">
+                                    <div class="time-left">
+                                        <i class="far fa-clock"></i> Ends in:
+                                        <span class="countdown" data-end="2023-12-26T18:30:00">3d 6h</span>
+                                    </div>
+                                </div>
+                                <a href="item-details.html" class="btn btn-outline btn-block">Place Bid</a>
                             </div>
                         </div>
                     </div>
@@ -309,45 +360,6 @@
                 <div class="swiper-pagination"></div>
                 <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Bidding Items -->
-    <section class="bidding-items">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Bidding Items</h2>
-                <a href="current-bidding.html" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
-            </div>
-            <div class="bidding-items-list">
-                <div class="bidding-item-card">
-                    <img src="https://images.unsplash.com/photo-1589998059171-988d887df646?ixlib=rb-4.0.3&auto=format&fit=crop&w=1476&q=80" alt="Antique Writing Desk">
-                    <div class="bidding-item-details">
-                        <h3>Antique Writing Desk</h3>
-                        <p>Current Bid: $1,800</p>
-                        <p>Ends in: 18h 45m</p>
-                        <a href="item-details.html" class="btn btn-outline">Bid Now</a>
-                    </div>
-                </div>
-                <div class="bidding-item-card">
-                    <img src="https://images.unsplash.com/photo-1603302576837-37561b2e2302?ixlib=rb-4.0.3&auto=format&fit=crop&w=1468&q=80" alt="Gaming Console">
-                    <div class="bidding-item-details">
-                        <h3>Latest Gaming Console</h3>
-                        <p>Current Bid: $450</p>
-                        <p>Ends in: 5d 2h</p>
-                        <a href="item-details.html" class="btn btn-outline">Bid Now</a>
-                    </div>
-                </div>
-                <div class="bidding-item-card">
-                    <img src="https://images.unsplash.com/photo-1543002588-bfa74002ed7e?ixlib=rb-4.0.3&auto=format&fit=crop&w=687&q=80" alt="Vintage Camera">
-                    <div class="bidding-item-details">
-                        <h3>Vintage Film Camera</h3>
-                        <p>Current Bid: $780</p>
-                        <p>Ends in: 3d 6h</p>
-                        <a href="item-details.html" class="btn btn-outline">Bid Now</a>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -523,18 +535,4 @@
                             <li><a href="#">Returns</a></li>
                             <li><a href="#">Terms of Service</a></li>
                             <li><a href="#">Privacy Policy</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
 
-    <script>
-        // Basic dark mode toggle
-        document.getElementById('theme-toggle').addEventListener('click', function() {
-            document.documentElement.classList.toggle('dark');
-        });
-    </script>
-</body>
-</html>
