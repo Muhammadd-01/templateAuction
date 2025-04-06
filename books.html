@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books - AuctionHub</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/category.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <h1>Auction<span>Hub</span></h1>
+                    </a>
+                </div>
+                
+                <div class="search-bar">
+                    <form id="search-form">
+                        <input type="text" placeholder="Search for items..." id="search-input">
+                        <button type="submit">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
+                </div>
+                
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="books.html" class="active">Books</a></li>
+                        <li><a href="furniture.html">Furniture</a></li>
+                        <li><a href="electronics.html">Electronics</a></li>
+                        <li><a href="current-bidding.html">Current Bidding</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="user-actions">
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                        <i class="fas fa-moon"></i>
+                        <i class="fas fa-sun"></i>
+                    </button>
+                    <div class="auth-buttons">
+                        <a href="login.html" class="btn btn-outline">Login</a>
+                        <a href="register.html" class="btn btn-primary">Register</a>
+                    </div>
+                </div>
+                
+                <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu">
+            <div class="container">
+                <form class="mobile-search">
+                    <input type="text" placeholder="Search for items...">
+                    <button type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="books.html" class="active">Books</a></li>
+                        <li><a href="furniture.html">Furniture</a></li>
+                        <li><a href="electronics.html">Electronics</a></li>
+                        <li><a href="current-bidding.html">Current Bidding</a></li>
+                        <li><a href="login.html">Login</a></li>
+                        <li><a href="register.html">Register</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Banner -->
+    <section class="page-banner" style="background-image: url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')">
+        <div class="container">
+            <h1>Books</h1>
+            <p>Discover rare editions, bestsellers, and collectible books</p>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="filter-section">
+        <div class="container">
+            <div class="filter-container">
+                <div class="filter-group">
+                    <label for="sort-by">Sort By:</label>
+                    <select id="sort-by" class="filter-select">
+                        <option value="ending-soon">Ending Soon</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="newest">Newest</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="book-category">Category:</label>
+                    <select id="book-category" class="filter-select">
+                        <option value="all">All Categories</option>
+                        <option value="fiction">Fiction</option>
+                        <option value="non-fiction">Non-Fiction</option>
+                        <option value="rare">Rare & Collectible</option>
+                        <option value="children">Children's Books</option>
+                        <option value="academic">Academic & Textbooks</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="price-range">Price Range:</label>
+                    <div class="range-slider">
+                        <input type="range" id="price-range" min="0" max="5000" step="50" value="2500">
+                        <span class="range-value">$0 - $2,500</span>
+                    </div>
+                </div>
+                <button class="btn btn-primary filter-button">Apply Filters</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Books Grid -->
+    <section class="items-grid">
+        <div class="container">
+            <div class="grid-header">
+                <h2>Available Books</h2>
+                <p>Showing 12 of 48 items</p>
+            </div>
+            <div class="items-container">
+                <!-- Book Item 1 -->
+                <div class="auction-card">
+                    <div class="auction-image">
+                        <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Rare First Edition Book">
+                        <div class="auction-badge">Hot</div>
+                    </div>
+                    <div class="auction-details">
+                        <h3>Rare First Edition Book</h3>
+                        <div class="auction-meta">
+                            <span class="category"><i class="fas fa-tag"></i> Rare & Collectible</span>
+                            <span class="bids"><i class="fas fa-gavel"></i> 15 bids</span>
+                        </div>
+                        <div class="auction-price">
+                            <span class="current-bid">Current Bid:</span>
+                            <span class="price">$1,250</span>
+                        </div>
+                        <div class="auction-time">
+                            <div class="time-left">
+                                <i class="far fa-clock"></i> Ends in:
+                                <span class="countdown" data-end="2023-12-31T15:00:00">2d 14h</span>
+                            </div>
+                        </div>
+                        <a href="item-details.html" class="btn btn-outline btn-block">Place Bid</a>
+                    </div>
+                </div>
+
+                <!-- Book Item 2 -->
+                <div class="auction-card">
+                    <div class="auction-image">
+                        <img src="https://images.unsplash.com/photo-1629992101753-56d196c8aabb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=690&q=80" alt="Classic Literature Collection">
+                    </div>
+                    <div class="auction-details">
+                        <h3>Classic Literature Collection</h3>
+                        <div class="auction-meta">
+                            <span class="category"><i class="fas fa-tag"></i> Fiction</span>
+                            <span class="bids"><i class="fas fa-gavel"></i> 8 bids</span>
+                        </div>
+                        <div class="auction-price">
+                            <span class="current-bid">Current Bid:</span>
+                            <span class="price">$450</span>
+                        </div>
+                        <div class="auction-time">
+                            <div class="time-left">
+                                <i class="far fa-clock"></i> Ends in:
+                                <span class="countdown" data-end="2023-12-28T18:30:00">5d 6h</span>
+                            </div>
+                        </div>
+                        <a href="item-details.html" class="btn btn-outline btn-block">Place Bid</a>
+                    </div>
+                </div>
+
+                <!-- Book Item 3 -->
+                <div class="auction-card">
+                    <div class="auction-image">
+                        <img src="https://images.unsplash.com/photo-1543002588-bfa74002ed7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Signed Biography">
+                        <div class="auction-badge">Ending Soon</div>
+                    </div>
+                    <div class="auction-details">
+                        <h3>Signed Biography</h3>
+                        <div class="auction-meta">
+                            <span class="category"><i class="fas fa-tag"></i> Non-Fiction</span>
+                            <span class="bids"><i class="fas fa-gavel"></i> 12 bids</span>
+                        </div>
+                        <div class="auction-price">
+                            <span class="current-bid">Current Bid:</span>
+                            <span class="price">$320</span>
+                        </div>
+                        <div class="auction-time">
+                            <div class="time-left">
+                                <i class="far fa-clock"></i> Ends in:
+                                <span class="countdown" data-end="2023-12-24T09:15:00">18h 45m</span>
+                            </div>
+                        </div>
+                        <a href="item-details.html" class="btn btn-outline btn-block">Place Bid</a>
+                    </div>
+                </div>
+
+                <!-- Book Item 4 -->
+                <div class="auction-card">
+                    <div class="auction-image">
+                        <img src="https://images.unsplash.com/photo-1531988042231-d39a9cc12a9a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Vintage Comic Book Collection">
+                    </div>
+                    <div class="auction-details">
+                        <h3>Vintage Comic Book Collection</h3>
+                        <div class="auction-meta">
+                            <span class="category"><i class="fas fa-tag"></i> Rare & Collectible</span>
+                            <span class="bids"><i class="fas fa-gavel"></i> 25 bids</span>
+                        </div>
+                        <div class="auction-price">
+                            <span class="current-bid">Current Bid:</span>
+                            <span class="price">$2,800</span>
+                        </div>
+                        <div class="auction-time">
+                            <div class="time-left">
+                                <i class="far fa-clock"></i> Ends in:
+                                <span class="countdown" data-end="2024-01-05T14:00:00">7d 12h</span>
+                            </div>
+                        </div>
+                        <a href="item-details.html" class="btn btn-outline btn-block">Place Bid</a>
+                    </div>
+                </div>
+
+                <!-- Book Item 5 -->
+                <div class="auction-card">
+                    <div class="auction-image">
+                        <img src="https://images.unsplash.com/photo-1535905557558-afc4877a26fc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Children's Book Set">
+                    </div>
+                    <div class="auction-details">
+                        <h3>Children's Book Set</h3>
+                        <div class="auction-meta">
+                            <span class="category"><i class="fas fa-tag"></i> Children's Books</span>
+                            <span class="bids"><i class="fas fa-gavel"></i> 6 bids</span>
+                        </div>
+                        <div class="auction-price">
+                            <span class="current-bid">Current Bid:</span>
+                            <span class="price">$120</span>
+                        </div>
+                        <div class="auction-time">
+                            <div class="time-left">
+                                <i class="far fa-clock"></i> Ends in:
+                                <span class="countdown" data-end="2023-12-29T20:00:00">6d 8h</span>
+                            </div>
+                        </div>
+                        <a href="item-details.html" class="btn btn-outline btn-block">Place Bid</a>
+                    </div>
+                </div>
+
+                <!-- Book Item 6 -->
+                <div class="auction-card">
+                    <div class="auction-image">
+                        <img src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=712&q=80" alt="Academic Textbook Bundle">
+                    </div>
+                    <div class="auction-details">
+                        <h3>Academic Textbook Bundle</h3>
+                        <div class="auction-meta">
+                            <span class="category"><i class="fas fa-tag"></i> Academic & Textbooks</span>
+                            <span class="bids"><i class="fas fa-gavel"></i> 3 bids</span>
+                        </div>
+                        <div class="auction-price">
+                            <span class="current-bid">Current Bid:</span>
+                            <span class="price">$85</span>
+                        </div>
+                        <div class="auction-time">
+                            <div class="time-left">
+                                <i class="far fa-clock"></i> Ends in:
+                                <span class="countdown" data-end="2023-12-27T12:00:00">4d 0h</span>
+                            </div>
+                        </div>
+                        <a href="item-details.html" class="btn btn-outline btn-block">Place Bid</a>
+                    </div>
+                </div>
+
+                <!-- Book Item 7 -->
+                <div class="auction-card">
+                    <div class="auction-image">
+                        <img src="https://images.unsplash.com/photo-1603162525937-96db6bd03aea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80" alt="Illustrated Fantasy Novel">
+                        <div class="auction-badge">Featured</div>
+                    </div>
+                    <div class="auction-details">
+                        <h3>Illustrated Fantasy Novel</h3>
+                        <div class="auction-meta">
+                            <span class="category"><i class="fas fa-tag"></i> Fiction</span>
+                            <span class="bids"><i class="fas fa-gavel"></i> 9 bids</span>
+                        </div>
+                        <div class="auction-price">
+                            <span class="current-bid">Current Bid:</span>
+                            <span class="price">$175</span>
+                        </div>
+                        <div class="auction-time">
+                            <div class="time-left">
+                                <i class="far fa-clock"></i> Ends in:
+                                <span class="countdown" data-end="2023-12-30T16:45:00">7d 4h</span>
+                            </div>
+                        </div>
+                        <a href="item-details.html" class="btn btn-outline btn-block">Place Bid</a>
+                    </div>
+                </div>
+
+                <!-- Book Item 8 -->
+                <div class="auction-card">
+                    <div class="auction-image">
+                        <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1498&q=80" alt="Historical Reference Collection">
+                    </div>
+                    <div class="auction-details">
+                        <h3>Historical Reference Collection</h3>
+                        <div class="auction-meta">
+                            <span class="category"><i class="fas fa-tag"></i> Non-Fiction</span>
+                            <span class="bids"><i class="fas fa-gavel"></i> 5 bids</span>
+                        </div>
+                        <div class="auction-price">
+                            <span class="current-bid">Current Bid:</span>
+                            <span class="price">$380</span>
+                        </div>
+                        <div class="auction-time">
+                            <div class="time-left">
+                                <i class="far fa-clock"></i> Ends in:
+                                <span class="countdown" data-end="2023-12-26T08:30:00">3d 20h</span>
+                            </div>
+                        </div>
+                        <a href="item-details.html" class="btn btn-outline btn-block">Place Bid</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pagination -->
+            <div class="pagination">
+                <button class="pagination-button active">1</button>
+                <button class="pagination-button">2</button>
+                <button class="pagination-button">3</button>
+                <button class="pagination-button">4</button>
+                <button class="pagination-button pagination-next">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <div class="newsletter-text">
+                    <h2>Stay Updated</h2>
+                    <p>Subscribe to our newsletter to receive updates on new book auctions and special offers.</p>
+                </div>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your email address" required>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>Auction<span>Hub</span></h2>
+                    <p>Your trusted platform for online auctions. Find unique items or sell your valuables to the highest bidder.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-links-column">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="books.html">Books</a></li>
+                            <li><a href="furniture.html">Furniture</a></li>
+                            <li><a href="electronics.html">Electronics</a></li>
+                            <li><a href="current-bidding.html">Current Bidding</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-column">
+                        <h3>Account</h3>
+                        <ul>
+                            <li><a href="login.html">Login</a></li>
+                            <li><a href="register.html">Register</a></li>
+                            <li><a href="#">My Bids</a></li>
+                            <li><a href="#">Watchlist</a></li>
+                            <li><a href="#">Settings</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-column">
+                        <h3>Help</h3>
+                        <ul>
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#">Shipping</a></li>
+                            <li><a href="#">Returns</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 AuctionHub. All rights reserved.</p>
+                <div class="payment-methods">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-amex"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/category.js"></script>
+</body>
+</html>
+

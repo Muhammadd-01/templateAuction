@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Furniture - AuctionHub</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/category.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <h1>Auction<span>Hub</span></h1>
+                    </a>
+                </div>
+                
+                <div class="search-bar">
+                    <form id="search-form">
+                        <input type="text" placeholder="Search for items..." id="search-input">
+                        <button type="submit">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
+                </div>
+                
+                <nav class="main-nav">
+                    <ul>
+                        <li class="dropdown">
+                            <a href="books.html">Books <i class="fas fa-chevron-down"></i></a>
+                            <div class="dropdown-menu">
+                                <a href="books.html?category=fiction">Fiction</a>
+                                <a href="books.html?category=non-fiction">Non-Fiction</a>
+                                <a href="books.html?category=rare">Rare & Collectible</a>
+                                <a href="books.html?category=children">Children's Books</a>
+                                <a href="books.html?category=academic">Academic</a>
+                            </div>
+                        </li>
+                        <li class="dropdown">
+                            <a href="furniture.html" class="active">Furniture <i class="fas fa-chevron-down"></i></a>
+                            <div class="dropdown-menu">
+                                <a href="furniture.html?category=living">Living Room</a>
+                                <a href="furniture.html?category=bedroom">Bedroom</a>
+                                <a href="furniture.html?category=dining">Dining</a>
+                                <a href="furniture.html?category=office">Office</a>
+                                <a href="furniture.html?category=outdoor">Outdoor</a>
+                            </div>
+                        </li>
+                        <li class="dropdown">
+                            <a href="electronics.html">Electronics <i class="fas fa-chevron-down"></i></a>
+                            <div class="dropdown-menu">
+                                <a href="electronics.html?category=computers">Computers</a>
+                                <a href="electronics.html?category=phones">Phones & Tablets</a>
+                                <a href="electronics.html?category=audio">Audio</a>
+                                <a href="electronics.html?category=tv">TVs & Displays</a>
+                                <a href="electronics.html?category=cameras">Cameras</a>
+                            </div>
+                        </li>
+                        <li><a href="current-bidding.html">Current Bidding</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="user-actions">
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                        <i class="fas fa-moon"></i>
+                        <i class="fas fa-sun"></i>
+                    </button>
+                    <div class="auth-buttons">
+                        <a href="login.html" class="btn btn-outline">Login</a>
+                        <a href="register.html" class="btn btn-primary">Register</a>
+                    </div>
+                </div>
+                
+                <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu">
+            <div class="container">
+                <form class="mobile-search">
+                    <input type="text" placeholder="Search for items...">
+                    <button type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li class="mobile-dropdown">
+                            <a href="javascript:void(0)">Books <i class="fas fa-chevron-down"></i></a>
+                            <div class="mobile-dropdown-menu">
+                                <a href="books.html">All Books</a>
+                                <a href="books.html?category=fiction">Fiction</a>
+                                <a href="books.html?category=non-fiction">Non-Fiction</a>
+                                <a href="books.html?category=rare">Rare & Collectible</a>
+                                <a href="books.html?category=children">Children's Books</a>
+                            </div>
+                        </li>
+                        <li class="mobile-dropdown">
+                            <a href="javascript:void(0)" class="active">Furniture <i class="fas fa-chevron-down"></i></a>
+                            <div class="mobile-dropdown-menu">
+                                <a href="furniture.html">All Furniture</a>
+                                <a href="furniture.html?category=living">Living Room</a>
+                                <a href="furniture.html?category=bedroom">Bedroom</a>
+                                <a href="furniture.html?category=dining">Dining</a>
+                                <a href="furniture.html?category=office">Office</a>
+                            </div>
+                        </li>
+                        <li class="mobile-dropdown">
+                            <a href="javascript:void(0)">Electronics <i class="fas fa-chevron-down"></i></a>
+                            <div class="mobile-dropdown-menu">
+                                <a href="electronics.html">All Electronics</a>
+                                <a href="electronics.html?category=computers">Computers</a>
+                                <a href="electronics.html?category=phones">Phones & Tablets</a>
+                                <a href="electronics.html?category=audio">Audio</a>
+                                <a href="electronics.html?category=tv">TVs & Displays</a>
+                            </div>
+                        </li>
+                        <li><a href="current-bidding.html">Current Bidding</a></li>
+                        <li><a href="login.html">Login</a></li>
+                        <li><a href="register.html">Register</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Banner -->
+    <section class="page-banner" style="background-image: url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1558&q=80')">
+        <div class="container">
+            <h1>Furniture</h1>
+            <p>Discover vintage and modern furniture for every space</p>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="filter-section">
+        <div class="container">
+            <div class="filter-container">
+                <div class="filter-group">
+                    <label for="sort-by">Sort By:</label>
+                    <select id="sort-by" class="filter-select">
+                        <option value="ending-soon">Ending Soon</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="newest">Newest</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="furniture-category">Category:</label>
+                    <select id="furniture-category" class="filter-select">
+                        <option value="all">All Categories</option>
+                        <option value="living">Living Room</option>
+                        <option value="bedroom">Bedroom</option>
+                        <option value="dining">Dining</option>
+                        <option value="office">Office</option>
+                        <option value="outdoor">Outdoor</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="price-range">Price Range:</label>
+                    <div class="range-slider">
+                        <input type="range" id="price-range" min="0" max="5000" step="50" value="2500">
+                        <span class="range-value">$0 - $2,500</span>
+                    </div>
+                </div>
+                <button class="btn btn-primary filter-button">Apply Filters</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Furniture Grid -->
+    <section class="items-grid">
+        <div class="container">
+            <div class="grid-header">
+                <h2>Available Furniture</h2>
+                <p>Showing 12 of 36 items</p>
+            </div>
+            <div class="items-container">
+                <!-- Furniture Item 1 -->
+                <div class="auction-card">
+                    <div class="auction-image">
+                        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Vintage Leather Sofa">
+                        <div class="auction-badge">Featured</div>
+                    </div>
+                    <div class="auction-details">
+                        <h3>Vintage Leather Sofa</h3>
+                        <div class="auction-meta">
+                            <span class="category"><i class="fas fa-tag"></i> Living Room</span>
+                            <span class="bids"><i class="fas fa-gavel"></i> 8 bids</span>
+                        </div>
+                        <div class="auction-price">
+                            <span class="current-bid">Current Bid:</span>
+                            <span class="price">$850</span>
+                        </div>
+                        <div class="auction-time">
+                            <div class="time-left">
+                                <i class="far fa-clock"></i> Ends in:
+                                <span class="countdown" data-end="2023-12-25T10:30:00">1d 8h</span>
+                            </div>
+                        </div>
+                        <a href="item-details.html" class="btn btn-outline btn-block">Place Bid</a>
+                    </div>
+                </div>
+
+                <!-- Furniture Item 2 -->
+                <div class="auction-card">
+                    <div class="auction-image">
+                        <img src="https://images.unsplash.com/photo-1589998059171-988d887df646?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1476&q=80" alt="Antique Writing Desk">
+                        <div class="auction-badge">Ending Soon</div>
+                    </div>
+                    <div class="auction-details">
+                        <h3>Antique Writing Desk</h3>
+                        <div class="auction-meta">
+                            <span class="category"><i class="fas fa-tag"></i> Office</span>
+                            <span class="bids"><i class="fas fa-gavel"></i> 20 bids</span>
+                        </div>
+                        <div class="auction-price">
+                            <span class="current-bid">Current Bid:</span>
+                            <span class="price">$1,800</span>
+                        </div>
+                        <div class="auction-time">
+                            <div class="time-left">
+                                <i class="far fa-clock"></i> Ends in:
+                                <span class="countdown" data-end="2023-12-24T09:15:00">18h 45m</span>
+                            </div>
+                        </div>
+                        <a href="item-details.html" class="btn btn-outline btn-block">Place Bid</a>
+                    </div>
+                </div>
+
+                <!-- Furniture Item 3 -->
+                <div class="auction-card">
+                    <div class="auction-image">
+                        <img src="https://images.unsplash.com/photo-1540574163026-643ea20ade25?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Mid-Century Dining Set">
+                    </div>
+                    <div class="auction-details">
+                        <h3>Mid-Century Dining Set</h3>
+                        <div class="auction-meta">
+                            <span class="category"><i class="fas fa-tag"></i> Dining</span>
+                            <span class="bids"><i class="fas fa-gavel"></i> 15 bids</span>
+                        </div>
+                        <div class="auction-price">
+                            <span class="current-bid">Current Bid:</span>
+                            <span class="price">$1,200</span>
+                        </div>
+                        <div class="auction-time">
+                            <div class="time-left">
+                                <i class="far fa-clock"></i> Ends in:
+                                <span class="countdown" data-end="2023-12-28T14:00:00">5d 2h</span>
+                            </div>
+                        </div>
+                        <a href="item-details.html" class="btn btn-outline btn-block">Place Bid</a>
+                    </div>
+                </div>
+
+                <!-- Furniture Item 4 -->
+                <div class="auction-card">
+                    <div class="auction-image">
+                        <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Luxury King Bed Frame">
+                    </div>
+                    <div class="auction-details">
+                        <h3>Luxury King Bed Frame</h3>
+                        <div class="auction-meta">
+                            <span class="category"><i class="fas fa-tag"></i> Bedroom</span>
+                            <span class="bids"><i class="fas fa-gavel"></i> 10 bids</span>
+                        </div>
+                        <div class="auction-price">
+                            <span class="current-bid">Current Bid:</span>
+                            <span class="price">$950</span>
+                        </div>
+                        <div class="auction-time">
+                            <div class="time-left">
+                                <i class="far fa-clock"></i> Ends in:
+                                <span class="countdown" data-end="2023-12-30T18:30:00">7d 6h</span>
+                            </div>
+                        </div>
+                        <a href="item-details.html" class="btn btn-outline btn-block">Place Bid</a>
+                    </div>
+                </div>
+
+                <!-- Furniture Item 5 -->
+                <div class="auction-card">
+                    <div class="auction-image">
+                        <img src="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1465&q=80" alt="Outdoor Patio Set">
+                        <div class="auction-badge">Hot</div>
+                    </div>
+                    <div class="auction-details">
+                        <h3>Outdoor Patio Set</h3>
+                        <div class="auction-meta">
+                            <span class="category"><i class="fas fa-tag"></i> Outdoor</span>
+                            <span class="bids"><i class="fas fa-gavel"></i> 18 bids</span>
+                        </div>
+                        <div class="auction-price">
+                            <span class="current-bid">Current Bid:</span>
+                            <span class="price">$750</span>
+                        </div>
+                        <div class="auction-time">
+                            <div class="time-left">
+                                <i class="far fa-clock"></i> Ends in:
+                                <span class="countdown" data-end="2023-12-26T12:00:00">3d 0h</span>
+                            </div>
+                        </div>
+                        <a href="item-details.html" class="btn btn-outline btn-block">Place Bid</a>
+                    </div>
+                </div>
+
+                <!-- Furniture Item 6 -->
+                <div class="auction-card">
+                    <div class="auction-image">
+                        <img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Modern Bookshelf">
+                    </div>
+                    <div class="auction-details">
+                        <h3>Modern Bookshelf</h3>
+                        <div class="auction-meta">
+                            <span class="category"><i class="fas fa-tag"></i> Living Room</span>
+                            <span class="bids"><i class="fas fa-gavel"></i> 7 bids</span>
+                        </div>
+                        <div class="auction-price">
+                            <span class="current-bid">Current Bid:</span>
+                            <span class="price">$420</span>
+                        </div>
+                        <div class="auction-time">
+                            <div class="time-left">
+                                <i class="far fa-clock"></i> Ends in:
+                                <span class="countdown" data-end="2023-12-29T10:00:00">6d 22h</span>
+                            </div>
+                        </div>
+                        <a href="item-details.html" class="btn btn-outline btn-block">Place Bid</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pagination -->
+            <div class="pagination">
+                <button class="pagination-button active">1</button>
+                <button class="pagination-button">2</button>
+                <button class="pagination-button">3</button>
+                <button class="pagination-button pagination-next">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <div class="newsletter-text">
+                    <h2>Stay Updated</h2>
+                    <p>Subscribe to our newsletter to receive updates on new furniture auctions and special offers.</p>
+                </div>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your email address" required>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>Auction<span>Hub</span></h2>
+                    <p>Your trusted platform for online auctions. Find unique items or sell your valuables to the highest bidder.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-links-column">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="books.html">Books</a></li>
+                            <li><a href="furniture.html">Furniture</a></li>
+                            <li><a href="electronics.html">Electronics</a></li>
+                            <li><a href="current-bidding.html">Current Bidding</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-column">
+                        <h3>Account</h3>
+                        <ul>
+                            <li><a href="login.html">Login</a></li>
+                            <li><a href="register.html">Register</a></li>
+                            <li><a href="#">My Bids</a></li>
+                            <li><a href="#">Watchlist</a></li>
+                            <li><a href="#">Settings</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-column">
+                        <h3>Help</h3>
+                        <ul>
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#">Shipping</a></li>
+                            <li><a href="#">Returns</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 AuctionHub. All rights reserved.</p>
+                <div class="payment-methods">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-amex"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/category.js"></script>
+</body>
+</html>

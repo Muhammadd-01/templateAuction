@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electronics - AuctionHub</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/category.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <h1>Auction<span>Hub</span></h1>
+                    </a>
+                </div>
+                
+                <div class="search-bar">
+                    <form id="search-form">
+                        <input type="text" placeholder="Search for items..." id="search-input">
+                        <button type="submit">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
+                    <div id="search-results" class="search-results"></div>
+                </div>
+                
+                <nav class="main-nav">
+                    <ul>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle">Categories <i class="fas fa-chevron-down"></i></a>
+                            <div class="dropdown-menu">
+                                <a href="books.html">Books</a>
+                                <a href="furniture.html">Furniture</a>
+                                <a href="electronics.html" class="active">Electronics</a>
+                            </div>
+                        </li>
+                        <li><a href="current-bidding.html">Current Bidding</a></li>
+                        <li><a href="sell-item.html">Sell Item</a></li>
+                        <li><a href="notifications.html">Notifications</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="user-actions">
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                        <i class="fas fa-moon"></i>
+                        <i class="fas fa-sun"></i>
+                    </button>
+                    <div class="auth-buttons">
+                        <a href="login.html" class="btn btn-outline">Login</a>
+                        <a href="register.html" class="btn btn-primary">Register</a>
+                    </div>
+                </div>
+                
+                <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu">
+            <div class="container">
+                <form class="mobile-search">
+                    <input type="text" placeholder="Search for items...">
+                    <button type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li class="mobile-dropdown">
+                            <a href="#" class="mobile-dropdown-toggle">Categories <i class="fas fa-chevron-down"></i></a>
+                            <ul class="mobile-dropdown-menu">
+                                <li><a href="books.html">Books</a></li>
+                                <li><a href="furniture.html">Furniture</a></li>
+                                <li><a href="electronics.html" class="active">Electronics</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="current-bidding.html">Current Bidding</a></li>
+                        <li><a href="sell-item.html">Sell Item</a></li>
+                        <li><a href="notifications.html">Notifications</a></li>
+                        <li><a href="login.html">Login</a></li>
+                        <li><a href="register.html">Register</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Category Banner -->
+    <section class="category-banner">
+        <div class="swiper category-swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="banner-content">
+                        <div class="container">
+                            <div class="banner-text">
+                                <h1>Electronics</h1>
+                                <p>Discover the latest gadgets and tech at competitive prices</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="banner-image" style="background-image: url('https://images.unsplash.com/photo-1550009158-9ebf69173e03?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1501&q=80')"></div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="banner-content">
+                        <div class="container">
+                            <div class="banner-text">
+                                <h1>Premium Audio</h1>
+                                <p>Bid on high-quality headphones, speakers, and audio equipment</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="banner-image" style="background-image: url('https://images.unsplash.com/photo-1612444530582-fc66183b16f7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80')"></div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="banner-content">
+                        <div class="container">
+                            <div class="banner-text">
+                                <h1>Vintage Electronics</h1>
+                                <p>Explore our collection of rare and vintage electronic items</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="banner-image" style="background-image: url('https://images.unsplash.com/photo-1543002588-bfa74002ed7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80')"></div>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="filter-section">
+        <div class="container">
+            <div class="filter-container">
+                <div class="filter-header">
+                    <h2>Filters</h2>
+                    <button class="filter-toggle">
+                        <i class="fas fa-sliders-h"></i> Filter Options
+                    </button>
+                </div>
+                <div class="filter-body">
+                    <div class="filter-group">
+                        <h3>Sort By</h3>
+                        <select id="sort-by" class="filter-select">
+                            <option value="ending-soon">Ending Soon</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                            <option value="newest">Newest</option>
+                            <option value="popular">Most Popular</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <h3>Category</h3>
+                        <div class="filter-options">
+                            <label class="filter-checkbox">
+                                <input type="checkbox" value="computers" checked> Computers & Laptops
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" value="phones" checked> Smartphones & Tablets
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" value="audio" checked> Audio Equipment
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" value="cameras" checked> Cameras & Photography
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" value="gaming" checked> Gaming & Consoles
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" value="vintage" checked> Vintage Electronics
+                            </label>
+                        </div>
+                    </div>
+                    <div class="filter-group">
+                        <h3>Price Range</h3>
+                        <div class="range-slider">
+                            <div class="range-values">
+                                <span id="price-min">$0</span>
+                                <span id="price-max">$5,000</span>
+                            </div>
+                            <div class="range-container">
+                                <input type="range" id="price-range" min="0" max="5000" step="50" value="5000" class="range-input">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="filter-group">
+                        <h3>Condition</h3>
+                        <div class="filter-options">
+                            <label class="filter-checkbox">
+                                <input type="checkbox" value="new" checked> New
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" value="like-new" checked> Like New
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" value="excellent" checked> Excellent
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" value="good" checked> Good
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" value="fair" checked> Fair
+                            </label>
+                        </div>
+                    </div>
+                    <div class="filter-actions">
+                        <button class="btn btn-outline" id="reset-filters">Reset</button>
+                        <button class="btn btn-primary" id="apply-filters">Apply Filters</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Electronics -->
+    <section class="featured-items">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Featured Electronics</h2>
+                <a href="#" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="swiper featured-swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="auction-card">
+                            <div class="auction-image">
+                                <img src="https://images.unsplash.com/photo-1543002588-bfa74002ed7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Vintage Camera">
+                                <div class="auction-badge">Hot</div>
+                            </div>
+                            <div class="auction-details">
+                                <h3>Vintage Film Camera</h3>
+                                <div class="auction-meta">
+                                    <span class="category"><i class="fas fa-tag"></i> Cameras</span>
+                                    <span class="bids"><i class="fas fa-gavel"></i> 32 bids</span>
+                                </div>
+                                <div class="auction-price">
+                                    <span class="current-bid">Current Bid:</span>
+                                    <span class="price">$780</span>
+                                </div>
+                                <div class="auction-time">
+                                    <div class="time-left">
+                                        <i class="far fa-clock"></i> Ends in:
+                                        <span class="countdown" data-end="2023-12-26T18:30:00">3d 6h</span>
+                                    </div>
+                                </div>
+                                <a href="item-details.html" class="btn btn-outline btn-block">Place Bid</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="auction-card">
+                            <div class="auction-image">
+                                <img src="https://images.unsplash.com/photo-1612444530582-fc66183b16f7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Premium Headphones">
+                                <div class="auction-badge">Featured</div>
+                            </div>
+                            <div class="auction-details">
+                                <h3>Premium Wireless Headphones</h3>
+                                <div class="auction-meta">
+                                    <span class="category"><i class="fas fa-tag"></i> Audio</span>
+                                    <span class="bids"><i class="fas fa-gavel"></i> 23 bids</span>
+                                </div>
+                                <div class="auction-price">
+                                    <span class="current-bid">Current Bid:</span>
+                                    <span class="price">$320</span>
+                                </div>
+                                <div class="auction-time">
+                                    <div class="time-left">
+                                        <i class="far fa-clock"></i> Ends in:
+                                        <span class="countdown" data-end="2023-12-25T23:59:00">2d 12h</span>
+                                    </div>
+                                </div>
+                                <a href="item-details.html" class="btn btn-outline btn-block">Place Bid</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="auction-card">
+                            <div class="auction-image">
+                                <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80" alt="Smart 4K TV">
+                                <div class="auction-badge">New</div>
+                            </div>
+                            <div class="auction-details">
+                                <h3>Smart 4K TV - 55 inch</h3>
+                                <div class="auction-meta">
+                                    <span class="category"><i class="fas fa-tag"></i> TVs</span>
+                                    <span class="bids"><i class="fas fa-gavel"></i> 12 bids</span>
+                                </div>
+                                <div class="auction-price">
+                                    <span class="current-bid">Current Bid:</span>
+                                    <span class="price">$520</span>
+                                </div>
+                                <div class="auction-time">
+                                    <div class="time-left">
+                                        <i class="far fa-clock"></i> Ends in:
+                                        <span class="countdown" data-end="2024-01-04T22:00:00">3d 22h</span>
+                                    </div>
+                                </div>
+                                <a href="item-details.html" class="btn btn-outline btn-block">Place Bid</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="auction-card">
+                            <div class="auction-image">
+                                <img src="https://images.unsplash.com/photo-1603302576837-37561b2e2302?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1468&q=80" alt="Gaming Console">
+                                <div class="auction-badge">Ending Soon</div>
+                            </div>
+                            <div class="auction-details">
+                                <h3>Latest Gaming Console</h3>
+                                <div class="auction-meta">
+                                    <span class="category"><i class="fas fa-tag"></i> Gaming</span>
+                                    <span class="bids"><i class="fas fa-gavel"></i> 25 bids</span>
+                                </div>
+                                <div class="auction-price">
+                                    <span class="current-bid">Current Bid:</span>
+                                    <span class="price">$450</span>
+                                </div>
+                                <div class="auction-time">
+                                    <div class="time-left">
+                                        <i class="far fa-clock"></i> Ends in:
+                                        <span class="countdown" data-end="2023-12-24T14:00:00">1d 2h</span>
+                                    </div>
+                                </div>
+                                <a href="item-details.html" class="btn btn-outline btn-block">Place Bid</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Electronics Grid -->
+    <section class="items-grid">
+        <div class="container">
+            <div class="grid-header">
+                <h2>All Electronics</h2>
+                <p>Showing <span id="items-count">12</span> of <span id="total-items">36</span> items</p>
+            </div>
+            <div class="items-container">
+                <!-- Item 1 -->
+                <div class="auction-card" data-category="computers">
+                    <div class="auction-image">
+                        <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" alt="MacBook Pro">
+                    </div>
+                    <div class="auction-details">
+                        <h3>MacBook Pro 16" - 2023</h3>
+                        <div class="auction-meta">
+                            <span class="category"><i class="fas fa-tag"></i> Computers</span>
+                            <span class="bids"><i class="fas fa-gavel"></i> 18 bids</span>
+                        </div>
+                        <div class="auction-price">
+                            <span class="current-bid">Current Bid:</span>
+                            <span class="price">$1,850</span>
+                        </div>
+                        <div class="auction-time">
+                            <div class="time-left">
+                                <i class="far fa-clock"></i> Ends in:
+                                <span class="countdown" data-end="2023-12-28T10:00:00">5d 22h</span>
+                            </div>
+                        </div>
+                        <a href="item-details.html" class="btn btn-outline btn-block">Place Bid</a>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="auction-card" data-category="phones">
+                    <div class="auction-image">
+                        <img src="https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=329&q=80" alt="Smartphone">
+                        <div class="auction-badge">Hot</div>
+                    </div>
+                    <div class="auction-details">
+                        <h3>Latest Smartphone - Unlocked</h3>
+                        <div class="auction-meta">
+                            <span class="category"><i class="fas fa-tag"></i> Phones</span>
+                            <span class="bids"><i class="fas fa-gavel"></i> 21 bids</span>
+                        </div>
+                        <div class="auction-price">
+                            <span class="current-bid">Current Bid:</span>
+                            <span class="price">$680</span>
+                        </div>
+                        <div class="auction-time">
+                            <div class="time-left">
+                                <i class="far fa-clock"></i> Ends in:
+                                <span class="countdown" data-end="2023-12-25T18:30:00">2d 6h</span>
+                            </div>
+                        </div>
+                        <a href="item-details.html" class="btn btn-outline btn-block">Place Bid</a>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="auction-card" data-category="audio">
+                    <div class="auction-image">
+                        <img src="https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1631&q=80" alt="Wireless Speaker">
+                    </div>
+                    <div class="auction-details">
+                        <h3>Premium Bluetooth Speaker</h3>
+                        <div class="auction-meta">
+                            <span class="category"><i class="fas fa-tag"></i> Audio</span>
+                            <span class="bids"><i class="fas fa-gavel"></i> 9 bids</span>
+                        </div>
+                        <div class="auction-price">
+                            <span class="current-bid">Current Bid:</span>
+                            <span class="price">$210</span>
+                        </div>
+                        <div class="auction-time">
+                            <div class="time-left">
+                                <i class="far fa-clock"></i> Ends in:
+                                <span class="countdown" data-end="2023-12-29T12:00:00">6d 0h</span>
+                            </div>
+                        </div>
+                        <a href="item-details.html" class="btn btn-outline btn-block">Place Bid</a>
+                    </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="auction-card" data-category="cameras">
+                    <div class="auction-image">
+                        <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80" alt="DSLR Camera">
+                    </div>
+                    <div class="auction-details">
+                        <h3>Professional DSLR Camera</h3>
+                        <div class="auction-meta">
+                            <span class="category"><i class="fas fa-tag"></i> Cameras</span>
+                            <span class="bids"><i class="fas fa-gavel"></i> 14 bids</span>
+                        </div>
+                        <div class="auction-price">
+                            <span class="current-bid">Current Bid:</span>
+                            <span class="price">$950</span>
+                        </div>
+                        <div class="auction-time">
+                            <div class="time-left">
+                                <i class="far fa-clock"></i> Ends in:
+                                <span class="countdown" data-end="2023-12-27T15:45:00">4d 3h</span>
+                            </div>
+                        </div>
+                        <a href="item-details.html" class="btn btn-outline btn-block">Place Bid</a>
+                    </div>
+                </div>
+
+                <!-- Item 5 -->
+                <div class="auction-card" data-category="gaming">
+                    <div class="auction-image">
+                        <img src="https://images.unsplash.com/photo-1593305841991-05c297ba4575?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1057&q=80" alt="Gaming PC">
+                        <div class="auction-badge">New</div>
+                    </div>
+                    <div class="auction-details">
+                        <h3>High-End Gaming PC</h3>
+                        <div class="auction-meta">
+                            <span class="category"><i class="fas fa-tag"></i> Gaming</span>
+                            <span class="bids"><i class="fas fa-gavel"></i> 27 bids</span>
+                        </div>
+                        <div class="auction-price">
+                            <span class="current-bid">Current Bid:</span>
+                            <span class="price">$1,650</span>
+                        </div>
+                        <div class="auction-time">
+                            <div class="time-left">
+                                <i class="far fa-clock"></i> Ends in:
+                                <span class="countdown" data-end="2023-12-30T20:00:00">7d 8h</span>
+                            </div>
+                        </div>
+                        <a href="item-details.html" class="btn btn-outline btn-block">Place Bid</a>
+                    </div>
+                </div>
+
+                <!-- Item 6 -->
+                <div class="auction-card" data-category="vintage">
+                    <div class="auction-image">
+                        <img src="https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=667&q=80" alt="Vintage Record Player">
+                        <div class="auction-badge">Rare</div>
+                    </div>
+                    <div class="auction-details">
+                        <h3>Vintage Record Player</h3>
+                        <div class="auction-meta">
+                            <span class="category"><i class="fas fa-tag"></i> Vintage</span>
+                            <span class="bids"><i class="fas fa-gavel"></i> 16 bids</span>
+                        </div>
+                        <div class="auction-price">
+                            <span class="current-bid">Current Bid:</span>
+                            <span class="price">$420</span>
+                        </div>
+                        <div class="auction-time">
+                            <div class="time-left">
+                                <i class="far fa-clock"></i> Ends in:
+                                <span class="countdown" data-end="2023-12-26T09:30:00">2d 21h</span>
+                            </div>
+                        </div>
+                        <a href="item-details.html" class="btn btn-outline btn-block">Place Bid</a>
+                    </div>
+                </div>
+
+                <!-- Item 7 -->
+                <div class="auction-card" data-category="phones">
+                    <div class="auction-image">
+                        <img src="https://images.unsplash.com/photo-1544866092-1677b00c0c9b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Tablet">
+                    </div>
+                    <div class="auction-details">
+                        <h3>Premium Tablet - Latest Model</h3>
+                        <div class="auction-meta">
+                            <span class="category"><i class="fas fa-tag"></i> Tablets</span>
+                            <span class="bids"><i class="fas fa-gavel"></i> 11 bids</span>
+                        </div>
+                        <div class="auction-price">
+                            <span class="current-bid">Current Bid:</span>
+                            <span class="price">$480</span>
+                        </div>
+                        <div class="auction-time">
+                            <div class="time-left">
+                                <i class="far fa-clock"></i> Ends in:
+                                <span class="countdown" data-end="2023-12-28T16:15:00">5d 4h</span>
+                            </div>
+                        </div>
+                        <a href="item-details.html" class="btn btn-outline btn-block">Place Bid</a>
+                    </div>
+                </div>
+
+                <!-- Item 8 -->
+                <div class="auction-card" data-category="computers">
+                    <div class="auction-image">
+                        <img src="https://images.unsplash.com/photo-1587614382346-4ec70e388b28?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Monitor">
+                    </div>
+                    <div class="auction-details">
+                        <h3>32" 4K Curved Monitor</h3>
+                        <div class="auction-meta">
+                            <span class="category"><i class="fas fa-tag"></i> Computers</span>
+                            <span class="bids"><i class="fas fa-gavel"></i> 8 bids</span>
+                        </div>
+                        <div class="auction-price">
+                            <span class="current-bid">Current Bid:</span>
+                            <span class="price">$380</span>
+                        </div>
+                        <div class="auction-time">
+                            <div class="time-left">
+                                <i class="far fa-clock"></i> Ends in:
+                                <span class="countdown" data-end="2023-12-29T11:00:00">5d 23h</span>
+                            </div>
+                        </div>
+                        <a href="item-details.html" class="btn btn-outline btn-block">Place Bid</a>
+                    </div>
+                </div>
+
+                <!-- Item 9 -->
+                <div class="auction-card" data-category="audio">
+                    <div class="auction-image">
+                        <img src="https://images.unsplash.com/photo-1606127195679-beb8b01a3ff7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Turntable">
+                    </div>
+                    <div class="auction-details">
+                        <h3>Professional DJ Turntable</h3>
+                        <div class="auction-meta">
+                            <span class="category"><i class="fas fa-tag"></i> Audio</span>
+                            <span class="bids"><i class="fas fa-gavel"></i> 13 bids</span>
+                        </div>
+                        <div class="auction-price">
+                            <span class="current-bid">Current Bid:</span>
+                            <span class="price">$540</span>
+                        </div>
+                        <div class="auction-time">
+                            <div class="time-left">
+                                <i class="far fa-clock"></i> Ends in:
+                                <span class="countdown" data-end="2023-12-27T19:30:00">4d 7h</span>
+                            </div>
+                        </div>
+                        <a href="item-details.html" class="btn btn-outline btn-block">Place Bid</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pagination -->
+            <div class="pagination">
+                <button class="pagination-button active">1</button>
+                <button class="pagination-button">2</button>
+                <button class="pagination-button">3</button>
+                <button class="pagination-button">4</button>
+                <button class="pagination-button pagination-next">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <div class="newsletter-text">
+                    <h2>Stay Updated</h2>
+                    <p>Subscribe to our newsletter to receive updates on new electronics auctions and special offers.</p>
+                </div>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your email address" required>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>Auction<span>Hub</span></h2>
+                    <p>Your trusted platform for online auctions. Find unique items or sell your valuables to the highest bidder.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-links-column">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="books.html">Books</a></li>
+                            <li><a href="furniture.html">Furniture</a></li>
+                            <li><a href="electronics.html">Electronics</a></li>
+                            <li><a href="current-bidding.html">Current Bidding</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-column">
+                        <h3>Account</h3>
+                        <ul>
+                            <li><a href="login.html">Login</a></li>
+                            <li><a href="register.html">Register</a></li>
+                            <li><a href="#">My Bids</a></li>
+                            <li><a href="#">Watchlist</a></li>
+                            <li><a href="#">Settings</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-column">
+                        <h3>Help</h3>
+                        <ul>
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#">Shipping</a></li>
+                            <li><a href="#">Returns</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 AuctionHub. All rights reserved.</p>
+                <div class="payment-methods">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-amex"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/category.js"></script>
+</body>
+</html>
+

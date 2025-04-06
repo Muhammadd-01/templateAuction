@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results - BidMaster</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200 min-h-screen flex flex-col transition-colors duration-200">
+    <!-- Navigation -->
+    <nav class="bg-white dark:bg-gray-800 shadow-md">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-bold text-red-800 dark:text-red-500">BidMaster</a>
+                </div>
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="index.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-red-800 dark:hover:text-red-500">Home</a>
+                    <a href="category.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-red-800 dark:hover:text-red-500">Categories</a>
+                    <a href="notifications.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-red-800 dark:hover:text-red-500">Notifications</a>
+                    <a href="sell-item.html" class="px-4 py-2 rounded-md text-sm font-medium bg-red-800 text-white hover:bg-red-700 transition-colors duration-200">Sell an Item</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button id="theme-toggle" class="p-2 rounded-full text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none">
+                        <i data-feather="moon" class="dark:hidden"></i>
+                        <i data-feather="sun" class="hidden dark:block"></i>
+                    </button>
+                    <div class="relative">
+                        <button class="flex items-center focus:outline-none">
+                            <img src="https://via.placeholder.com/40" alt="Profile" class="h-8 w-8 rounded-full">
+                        </button>
+                    </div>
+                    <button class="md:hidden focus:outline-none" id="mobile-menu-button">
+                        <i data-feather="menu"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div class="md:hidden hidden" id="mobile-menu">
+                <div class="px-2 pt-2 pb-3 space-y-1">
+                    <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-red-800 dark:hover:text-red-500">Home</a>
+                    <a href="category.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-red-800 dark:hover:text-red-500">Categories</a>
+                    <a href="notifications.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-red-800 dark:hover:text-red-500">Notifications</a>
+                    <a href="sell-item.html" class="block px-3 py-2 rounded-md text-base font-medium bg-red-800 text-white hover:bg-red-700 transition-colors duration-200 mt-2">Sell an Item</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-grow container mx-auto px-4 py-8">
+        <!-- Search Section -->
+        <section class="mb-8">
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+                <form id="search-form" class="flex flex-col md:flex-row gap-4">
+                    <div class="flex-grow">
+                        <input type="text" id="search-input" placeholder="Search for items..." class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 text-gray-800 dark:text-gray-200 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-red-800 dark:focus:ring-red-500">
+                    </div>
+                    <button type="submit" class="bg-red-800 px-6 py-3 rounded-lg hover:bg-red-700 transition-colors duration-200 text-white">
+                        Search
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Results Section -->
+        <section>
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold" id="search-results-title">Search Results</h2>
+                <div class="flex items-center">
+                    <span class="text-gray-600 dark:text-gray-400 mr-2">Sort by:</span>
+                    <select id="sort-select" class="bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md px-3 py-1 focus:outline-none focus:ring-2 focus:ring-red-800 dark:focus:ring-red-500">
+                        <option value="ending-soon">Ending Soon</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="newest">Newest</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="results-count" class="text-gray-600 dark:text-gray-400 mb-6">Showing <span id="items-count">0</span> active auctions</div>
+
+            <div id="search-results" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Results will be populated by JavaScript -->
+            </div>
+
+            <!-- No Results Message -->
+            <div id="no-results" class="hidden text-center py-12">
+                <i data-feather="search" class="mx-auto h-12 w-12 text-gray-400 mb-4"></i>
+                <h3 class="text-xl font-semibold mb-2">No items found</h3>
+                <p class="text-gray-600 dark:text-gray-400">Try adjusting your search or browse categories instead.</p>
+                <a href="category.html" class="inline-block mt-4 px-6 py-2 bg-red-800 text-white rounded-md hover:bg-red-700 transition-colors duration-200">Browse Categories</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-gray-800 shadow-inner py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between">
+                <div class="mb-6 md:mb-0">
+                    <h3 class="text-xl font-bold text-red-800 dark:text-red-500 mb-4">BidMaster</h3>
+                    <p class="text-gray-600 dark:text-gray-400 max-w-md">Your trusted platform for online auctions. Find unique items or sell your valuables to the highest bidder.</p>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                        <ul class="space-y-2">
+                            <li><a href="index.html" class="text-gray-600 dark:text-gray-400 hover:text-red-800 dark:hover:text-red-500">Home</a></li>
+                            <li><a href="category.html" class="text-gray-600 dark:text-gray-400 hover:text-red-800 dark:hover:text-red-500">Categories</a></li>
+                            <li><a href="sell-item.html" class="text-gray-600 dark:text-gray-400 hover:text-red-800 dark:hover:text-red-500">Sell an Item</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4">Help</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-gray-600 dark:text-gray-400 hover:text-red-800 dark:hover:text-red-500">FAQ</a></li>
+                            <li><a href="#" class="text-gray-600 dark:text-gray-400 hover:text-red-800 dark:hover:text-red-500">Contact Us</a></li>
+                            <li><a href="#" class="text-gray-600 dark:text-gray-400 hover:text-red-800 dark:hover:text-red-500">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-200 dark:border-gray-700 mt-8 pt-8 text-center text-gray-600 dark:text-gray-400">
+                <p>&copy; 2023 BidMaster. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Sample data for demonstration
+        const auctionItems = [
+            {
+                id: 1,
+                title: "Vintage Leica Camera",
+                image: "https://via.placeholder.com/400x300",
+                currentBid: 1250,
+                endTime: new Date(Date.now() + 2 * 24 * 60 * 60 * 1000), // 2 days from now
+                bids: 15,
+                category: "electronics"
+            },
+            {
+                id: 2,
+                title: "Antique Pocket Watch",
+                image: "https://via.placeholder.com/400x300",
+                currentBid: 850,
+                endTime: new Date(Date.now() + 1 * 24 * 60 * 60 * 1000 + 8 * 60 * 60 * 1000), // 1 day and 8 hours from now
+                bids: 9,
+                category: "collectibles"
+            },
+            {
+                id: 3,
+                title: "Signed Vinyl Record",
+                image: "https://via.placeholder.com/400x300",
+                currentBid: 320,
+                endTime: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000 + 22 * 60 * 60 * 1000), // 3 days and 22 hours from now
+                bids: 7,
+                category: "collectibles"  + 3 * 24 * 60 * 60 * 1000 + 22 * 60 * 60 * 1000), // 3 days and 22 hours from now
+                bids: 7,
+                category: "collectibles"
+            },
+            {
+                id: 4,
+                title: "Rare Comic Book Collection",
+                image: "https://via.placeholder.com/400x300",
+                currentBid: 580,
+                endTime: new Date(Date.now() + 4 * 24 * 60 * 60 * 1000), // 4 days from now
+                bids: 12,
+                category: "collectibles"
+            },
+            {
+                id: 5,
+                title: "Handcrafted Jewelry Box",
+                image: "https://via.placeholder.com/400x300",
+                currentBid: 175,
+                endTime: new Date(Date.now() + 2 * 24 * 60 * 60 * 1000 + 12 * 60 * 60 * 1000), // 2 days and 12 hours from now
+                bids: 5,
+                category: "jewelry"
+            }
+        ];
+
+        // Initialize Feather Icons
+        document.addEventListener('DOMContentLoaded', () => {
+            feather.replace();
+            
+            // Mobile menu toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            // Theme toggle
+            const themeToggle = document.getElementById('theme-toggle');
+            const html = document.documentElement;
+            
+            // Check for saved theme preference or use system preference
+            const savedTheme = localStorage.getItem('theme') || 
+                (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            
+            // Apply the saved theme
+            if (savedTheme === 'dark') {
+                html.classList.add('dark');
+            } else {
+                html.classList.remove('dark');
+            }
+            
+            // Toggle theme
+            themeToggle.addEventListener('click', () => {
+                html.classList.toggle('dark');
+                const currentTheme = html.classList.contains('dark') ? 'dark' : 'light';
+                localStorage.setItem('theme', currentTheme);
+                feather.replace(); // Re-initialize icons after theme change
+            });
+
+            // Get search query from URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const searchQuery = urlParams.get('query') || '';
+            
+            // Set search input value
+            document.getElementById('search-input').value = searchQuery;
+            
+            // Update search results title
+            if (searchQuery) {
+                document.getElementById('search-results-title').textContent = `Results for "${searchQuery}"`;
+            }
+            
+            // Filter items based on search query
+            let filteredItems = auctionItems;
+            if (searchQuery) {
+                filteredItems = auctionItems.filter(item => 
+                    item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                    item.category.toLowerCase().includes(searchQuery.toLowerCase())
+                );
+            }
+            
+            // Update items count
+            document.getElementById('items-count').textContent = filteredItems.length;
+            
+            // Show/hide no results message
+            if (filteredItems.length === 0) {
+                document.getElementById('no-results').classList.remove('hidden');
+            } else {
+                document.getElementById('no-results').classList.add('hidden');
+            }
+            
+            // Render search results
+            renderSearchResults(filteredItems);
+            
+            // Handle search form submission
+            document.getElementById('search-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const searchInput = document.getElementById('search-input').value.trim();
+                window.location.href = `search-results.html?query=${encodeURIComponent(searchInput)}`;
+            });
+            
+            // Handle sort select change
+            document.getElementById('sort-select').addEventListener('change', function() {
+                const sortBy = this.value;
+                sortSearchResults(filteredItems, sortBy);
+                renderSearchResults(filteredItems);
+            });
+        });
+        
+        // Format time remaining
+        function formatTimeRemaining(endTime) {
+            const now = new Date();
+            const diff = endTime - now;
+            
+            if (diff <= 0) {
+                return 'Ended';
+            }
+            
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            
+            if (days > 0) {
+                return `${days}d ${hours}h`;
+            } else {
+                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                return `${hours}h ${minutes}m`;
+            }
+        }
+        
+        // Format currency
+        function formatCurrency(amount) {
+            return '$' + amount.toLocaleString();
+        }
+        
+        // Render search results
+        function renderSearchResults(items) {
+            const resultsContainer = document.getElementById('search-results');
+            resultsContainer.innerHTML = '';
+            
+            items.forEach(item => {
+                const itemElement = document.createElement('div');
+                itemElement.className = 'bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-200';
+                itemElement.innerHTML = `
+                    <img src="${item.image}" alt="${item.title}" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold mb-2">${item.title}</h3>
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="text-gray-600 dark:text-gray-400">Current Bid:</span>
+                            <span class="font-bold text-red-800 dark:text-red-500">${formatCurrency(item.currentBid)}</span>
+                        </div>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-sm text-gray-500 dark:text-gray-400">Ends in: ${formatTimeRemaining(item.endTime)}</span>
+                            <span class="text-sm text-gray-500 dark:text-gray-400">${item.bids} bids</span>
+                        </div>
+                        <a href="item-details.html?id=${item.id}" class="block w-full bg-red-800 text-white text-center py-2 rounded-md hover:bg-red-700 transition-colors duration-200">Place Bid</a>
+                    </div>
+                `;
+                resultsContainer.appendChild(itemElement);
+            });
+        }
+        
+        // Sort search results
+        function sortSearchResults(items, sortBy) {
+            switch (sortBy) {
+                case 'ending-soon':
+                    items.sort((a, b) => a.endTime - b.endTime);
+                    break;
+                case 'price-low':
+                    items.sort((a, b) => a.currentBid - b.currentBid);
+                    break;
+                case 'price-high':
+                    items.sort((a, b) => b.currentBid - a.currentBid);
+                    break;
+                case 'newest':
+                    // For demo purposes, we'll just reverse the array
+                    items.reverse();
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>
+

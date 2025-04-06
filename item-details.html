@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item Details - BidMaster</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200 min-h-screen flex flex-col transition-colors duration-200">
+    <!-- Navigation -->
+    <nav class="bg-white dark:bg-gray-800 shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-bold text-red-800 dark:text-red-500">BidMaster</a>
+                </div>
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="index.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-red-800 dark:hover:text-red-500 border-b-2 border-transparent hover:border-red-800 dark:hover:border-red-500 transition-all duration-200">Home</a>
+                    <a href="category.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-red-800 dark:hover:text-red-500 border-b-2 border-transparent hover:border-red-800 dark:hover:border-red-500 transition-all duration-200">Categories</a>
+                    <a href="notifications.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-red-800 dark:hover:text-red-500 border-b-2 border-transparent hover:border-red-800 dark:hover:border-red-500 transition-all duration-200">Notifications</a>
+                    <a href="sell-item.html" class="px-4 py-2 rounded-md text-sm font-medium bg-red-800 text-white hover:bg-red-700 transition-colors duration-200 transform hover:scale-105">Sell an Item</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button id="theme-toggle" class="p-2 rounded-full text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none transform hover:scale-110 transition-transform duration-200">
+                        <i data-feather="moon" class="dark:hidden"></i>
+                        <i data-feather="sun" class="hidden dark:block"></i>
+                    </button>
+                    
+                    <!-- Login/Register Buttons -->
+                    <div class="hidden md:flex items-center space-x-2">
+                        <a href="login.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-red-800 dark:hover:text-red-500 border border-gray-300 dark:border-gray-600 hover:border-red-800 dark:hover:border-red-500 transition-all duration-200">Login</a>
+                        <a href="register.html" class="px-3 py-2 rounded-md text-sm font-medium bg-gray-800 dark:bg-gray-700 text-white hover:bg-red-800 dark:hover:bg-red-700 transition-colors duration-200">Register</a>
+                    </div>
+                    
+                    <div class="relative">
+                        <button id="profile-menu-button" class="flex items-center focus:outline-none">
+                            <img src="https://via.placeholder.com/40" alt="Profile" class="h-8 w-8 rounded-full border-2 border-transparent hover:border-red-800 dark:hover:border-red-500 transition-all duration-200">
+                        </button>
+                        <!-- Profile Dropdown -->
+                        <div id="profile-dropdown" class="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg py-1 z-10 hidden transition-all duration-200">
+                            <a href="profile.html" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700">My Profile</a>
+                            <a href="my-bids.html" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700">My Bids</a>
+                            <a href="my-auctions.html" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700">My Auctions</a>
+                            <a href="settings.html" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700">Settings</a>
+                            <div class="border-t border-gray-200 dark:border-gray-700"></div>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700">Logout</a>
+                        </div>
+                    </div>
+                    <button class="md:hidden focus:outline-none" id="mobile-menu-button">
+                        <i data-feather="menu"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div class="md:hidden hidden" id="mobile-menu">
+                <div class="px-2 pt-2 pb-3 space-y-1">
+                    <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-red-800 dark:hover:text-red-500">Home</a>
+                    <a href="category.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-red-800 dark:hover:text-red-500">Categories</a>
+                    <a href="notifications.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-red-800 dark:hover:text-red-500">Notifications</a>
+                    <a href="sell-item.html" class="block px-3 py-2 rounded-md text-base font-medium bg-red-800 text-white hover:bg-red-700 transition-colors duration-200 mt-2">Sell an Item</a>
+                    <div class="border-t border-gray-200 dark:border-gray-700 my-2"></div>
+                    <a href="login.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-red-800 dark:hover:text-red-500">Login</a>
+                    <a href="register.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-red-800 dark:hover:text-red-500">Register</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-grow container mx-auto px-4 py-8">
+        <!-- Breadcrumbs -->
+        <div class="flex items-center text-sm text-gray-600 dark:text-gray-400 mb-6">
+            <a href="index.html" class="hover:text-red-800 dark:hover:text-red-500">Home</a>
+            <i data-feather="chevron-right" class="h-4 w-4 mx-2"></i>
+            <a href="category.html" class="hover:text-red-800 dark:hover:text-red-500">Categories</a>
+            <i data-feather="chevron-right" class="h-4 w-4 mx-2"></i>
+            <a href="category.html?category=electronics" class="hover:text-red-800 dark:hover:text-red-500" id="item-category">Electronics</a>
+            <i data-feather="chevron-right" class="h-4 w-4 mx-2"></i>
+            <span class="text-gray-800 dark:text-gray-200" id="item-title">Vintage Leica Camera</span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Left Column - Images -->
+            <div class="lg:col-span-2">
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
+                    <!-- Main Image Slider -->
+                    <div class="swiper item-swiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img src="https://via.placeholder.com/800x600" alt="Vintage Camera Main" class="w-full h-96 object-contain">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="https://via.placeholder.com/800x600" alt="Vintage Camera Side" class="w-full h-96 object-contain">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="https://via.placeholder.com/800x600" alt="Vintage Camera Back" class="w-full h-96 object-contain">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="https://via.placeholder.com/800x600" alt="Vintage Camera With Case" class="w-full h-96 object-contain">
+                            </div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                        <div class="swiper-button-next text-red-800 dark:text-red-500"></div>
+                        <div class="swiper-button-prev text-red-800 dark:text-red-500"></div>
+                    </div>
+                    
+                    <!-- Thumbnail Slider -->
+                    <div class="swiper thumbnail-swiper p-2">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide cursor-pointer border-2 border-transparent hover:border-red-800 dark:hover:border-red-500 transition-colors duration-200 rounded overflow-hidden">
+                                <img src="https://via.placeholder.com/800x600" alt="Thumbnail 1" class="w-full h-20 object-cover">
+                            </div>
+                            <div class="swiper-slide cursor-pointer border-2 border-transparent hover:border-red-800 dark:hover:border-red-500 transition-colors duration-200 rounded overflow-hidden">
+                                <img src="https://via.placeholder.com/800x600" alt="Thumbnail 2" class="w-full h-20 object-cover">
+                            </div>
+                            <div class="swiper-slide cursor-pointer border-2 border-transparent hover:border-red-800 dark:hover:border-red-500 transition-colors duration-200 rounded overflow-hidden">
+                                <img src="https://via.placeholder.com/800x600" alt="Thumbnail 3" class="w-full h-20 object-cover">
+                            </div>
+                            <div class="swiper-slide cursor-pointer border-2 border-transparent hover:border-red-800 dark:hover:border-red-500 transition-colors duration-200 rounded overflow-hidden">
+                                <img src="https://via.placeholder.com/800x600" alt="Thumbnail 4" class="w-full h-20 object-cover">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Item Description -->
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mt-6">
+                    <h2 class="text-xl font-bold mb-4">Description</h2>
+                    <div class="prose dark:prose-invert max-w-none" id="item-description">
+                        <p>Rare Leica III model from 1936, excellent condition with original leather case and accessories. This vintage camera is a collector's item and represents a significant piece of photography history.</p>
+                        <p class="mt-4">Features:</p>
+                        <ul class="list-disc pl-5 mt-2 space-y-1">
+                            <li>Original Leica III body in excellent working condition</li>
+                            <li>Comes with 50mm f/3.5 Elmar lens</li>
+                            <li>Original leather case included</li>
+                            <li>Includes original manual and documentation</li>
+                            <li>Serial number confirms 1936 manufacturing date</li>
+                            <li>All mechanical functions work properly</li>
+                            <li>Shutter speeds are accurate</li>
+                        </ul>
+                        <p class="mt-4">This camera has been professionally serviced and is in fully operational condition. A fantastic addition to any vintage camera collection or for photography enthusiasts who appreciate the craftsmanship of classic cameras.</p>
+                    </div>
+                </div>
+                
+                <!-- Seller Information -->
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mt-6">
+                    <h2 class="text-xl font-bold mb-4">Seller Information</h2>
+                    <div class="flex items-center">
+                        <img src="https://via.placeholder.com/60" alt="Seller" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h3 class="font-semibold">Michael Thompson</h3>
+                            <div class="flex items-center mt-1">
+                                <div class="flex">
+                                    <i data-feather="star" class="h-4 w-4 text-yellow-500 fill-current"></i>
+                                    <i data-feather="star" class="h-4 w-4 text-yellow-500 fill-current"></i>
+                                    <i data-feather="star" class="h-4 w-4 text-yellow-500 fill-current"></i>
+                                    <i data-feather="star" class="h-4 w-4 text-yellow-500 fill-current"></i>
+                                    <i data-feather="star" class="h-4 w-4 text-yellow-500 fill-current"></i>
+                                </div>
+                                <span class="text-sm text-gray-600 dark:text-gray-400 ml-2">5.0 (128 reviews)</span>
+                            </div>
+                            <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">Member since: January 2020</p>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <a href="#" class="text-red-800 dark:text-red-500 text-sm hover:underline">See seller's other items</a>
+                    </div>
+                </div>
+                
+                <!-- Shipping and Returns -->
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mt-6">
+                    <h2 class="text-xl font-bold mb-4">Shipping and Returns</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <h3 class="font-semibold mb-2">Shipping</h3>
+                            <ul class="space-y-1 text-sm">
+                                <li class="flex items-start">
+                                    <i data-feather="truck" class="h-4 w-4 mr-2 mt-0.5 text-gray-600 dark:text-gray-400"></i>
+                                    <span>Standard shipping: 3-5 business days</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i data-feather="zap" class="h-4 w-4 mr-2 mt-0.5 text-gray-600 dark:text-gray-400"></i>
+                                    <span>Express shipping: 1-2 business days</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i data-feather="globe" class="h-4 w-4 mr-2 mt-0.5 text-gray-600 dark:text-gray-400"></i>
+                                    <span>International shipping: 5-10 business days</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold mb-2">Returns</h3>
+                            <ul class="space-y-1 text-sm">
+                                <li class="flex items-start">
+                                    <i data-feather="refresh-cw" class="h-4 w-4 mr-2 mt-0.5 text-gray-600 dark:text-gray-400"></i>
+                                    <span>Returns accepted within 14 days</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i data-feather="shield" class="h-4 w-4 mr-2 mt-0.5 text-gray-600 dark:text-gray-400"></i>
+                                    <span>Buyer pays return shipping</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i data-feather="check-circle" class="h-4 w-4 mr-2 mt-0.5 text-gray-600 dark:text-gray-400"></i>
+                                    <span>Item must be in original condition</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right Column - Auction Info -->
+            <div class="lg:col-span-1">
+                <div class="sticky top-24">
+                    <!-- Auction Info Card -->
+                    <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-lg font-semibold">Current Bid:</span>
+                            <span class="text-2xl font-bold text-red-800 dark:text-red-500" id="current-bid">$1,250</span>
+                        </div>
+                        
+                        <div class="flex justify-between items-center mb-4">
+                            <div class="flex items-center">
+                                <i data-feather="users" class="h-4 w-4 mr-1 text-gray-600 dark:text-gray-400"></i>
+                                <span class="text-sm text-gray-600 dark:text-gray-400" id="bid-count">15 bids</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i data-feather="eye" class="h-4 w-4 mr-1 text-gray-600 dark:text-gray-400"></i>
+                                <span class="text-sm text-gray-600 dark:text-gray-400">142 watching</span>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-100 dark:bg-gray-700 rounded-lg p-4 mb-6">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-sm font-medium">Time Left:</span>
+                                <span class="text-sm font-bold" id="time-left">2d 14h 35m 12s</span>
+                            </div>
+                            <div class="w-full bg-gray-300 dark:bg-gray-600 rounded-full h-2.5">
+                                <div class="bg-red-800 dark:bg-red-600 h-2.5 rounded-full" style="width: 65%"></div>
+                            </div>
+                            <div class="flex justify-between items-center mt-2">
+                                <span class="text-xs text-gray-600 dark:text-gray-400">Started: <span id="auction-start">Dec 20, 2023</span></span>
+                                <span class="text-xs text-gray-600 dark:text-gray-400">Ends: <span id="auction-end">Dec 31, 2023</span></span>
+                            </div>
+                        </div>
+                        
+                        <!-- Bid Form -->
+                        <form id="bid-form" class="space-y-4">
+                            <div>
+                                <label for="bid-amount" class="block text-sm font-medium mb-1">Your Bid (USD)</label>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                        <span class="text-gray-600 dark:text-gray-400">$</span>
+                                    </div>
+                                    <input type="number" id="bid-amount" name="bidAmount" min="1300" step="50" value="1300" required class="w-full pl-8 pr-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 dark:bg-gray-700 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-red-800 dark:focus:ring-red-500">
+                                </div>
+                                <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">Minimum bid: $1,300 (increment: $50)</p>
+                            </div>
+                            
+                            <button type="submit" class="w-full bg-red-800 text-white py-3 rounded-lg hover:bg-red-700 transition-colors duration-200 font-medium transform hover:scale-[1.02]">
+                                Place Bid
+                            </button>
+                        </form>
+                        
+                        <div class="mt-6 flex justify-between">
+                            <button type="button" id="watch-button" class="flex items-center text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-red-800 dark:hover:text-red-500 focus:outline-none">
+                                <i data-feather="heart" class="h-5 w-5 mr-1"></i>
+                                <span>Add to Watchlist</span>
+                            </button>
+                            <button type="button" id="share-button" class="flex items-center text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-red-800 dark:hover:text-red-500 focus:outline-none">
+                                <i data-feather="share-2" class="h-5 w-5 mr-1"></i>
+                                <span>Share</span>
+                            </button>
+                        </div>
+                        
+                        <!-- Share Options (Hidden by default) -->
+                        <div id="share-options" class="mt-4 hidden">
+                            <div class="flex space-x-4 justify-center">
+                                <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-red-800 dark:hover:text-red-500">
+                                    <i data-feather="facebook" class="h-6 w-6"></i>
+                                    <span class="sr-only">Share on Facebook</span>
+                                </a>
+                                <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-red-800 dark:hover:text-red-500">
+                                    <i data-feather="twitter" class="h-6 w-6"></i>
+                                    <span class="sr-only">Share on Twitter</span>
+                                </a>
+                                <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-red-800 dark:hover:text-red-500">
+                                    <i data-feather="mail" class="h-6 w-6"></i>
+                                    <span class="sr-only">Share via Email</span>
+                                </a>
+                                <button id="copy-link" class="text-gray-600 dark:text-gray-400 hover:text-red-800 dark:hover:text-red-500">
+                                    <i data-feather="link" class="h-6 w-6"></i>
+                                    <span class="sr-only">Copy Link</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Bidding History -->
+                    <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mt-6">
+                        <h2 class="text-lg font-bold mb-4">Bid History</h2>
+                        <ul class="space-y-3" id="bid-history">
+                            <!-- Bid items will be populated by JavaScript -->
+                        </ul>
+                        <button id="show-all-bids" class="text-red-800 dark:text-red-500 text-sm font-medium hover:underline mt-4">
+                            Show all bids
+                        </button>
+                    </div>
+                    
+                    <!-- Similar Items -->
+                    <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mt-6">
+                        <h2 class="text-lg font-bold mb-4">Similar Items</h2>
+                        <div class="space-y-4">
+                            <a href="#" class="flex items-center hover:bg-gray-50 dark:hover:bg-gray-700 p-2 rounded-lg transition-colors duration-200">
+                                <img src="https://via.placeholder.com/80" alt="Similar Item" class="w-16 h-16 object-cover rounded-md mr-3">
+                                <div class="flex-1">
+                                    <h3 class="text-sm font-medium">Vintage Nikon F Camera</h3>
+                                    <div class="flex justify-between items-center mt-1">
+                                        <span class="text-sm text-red-800 dark:text-red-500 font-semibold">$980</span>
+                                        <span class="text-xs text-gray-600 dark:text-gray-400">3d 6h left</span>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="#" class="flex items-center hover:bg-gray-50 dark:hover:bg-gray-700 p-2 rounded-lg transition-colors duration-200">
+                                <img src="https://via.placeholder.com/80" alt="Similar Item" class="w-16 h-16 object-cover rounded-md mr-3">
+                                <div class="flex-1">
+                                    <h3 class="text-sm font-medium">Canon AE-1 Film Camera</h3>
+                                    <div class="flex justify-between items-center mt-1">
+                                        <span class="text-sm text-red-800 dark:text-red-500 font-semibold">$750</span>
+                                        <span class="text-xs text-gray-600 dark:text-gray-400">5d 12h left</span>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="#" class="flex items-center hover:bg-gray-50 dark:hover:bg-gray-700 p-2 rounded-lg transition-colors duration-200">
+                                <img src="https://via.placeholder.com/80" alt="Similar Item" class="w-16 h-16 object-cover rounded-md mr-3">
+                                <div class="flex-1">
+                                    <h3 class="text-sm font-medium">Vintage Camera Lens Collection</h3>
+                                    <div class="flex justify-between items-center mt-1">
+                                        <span class="text-sm text-red-800 dark:text-red-500 font-semibold">$1,450</span>
+                                        <span class="text-xs text-gray-600 dark:text-gray-400">2d 3h left</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-gray-800 shadow-inner py-8 mt-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between">
+                <div class="mb-6 md:mb-0">
+                    <h3 class="text-xl font-bold text-red-800 dark:text-red-500 mb-4">BidMaster</h3>
+                    <p class="text-gray-600 dark:text-gray-400 max-w-md">Your trusted platform for online auctions. Find unique items or sell your valuables to the highest bidder.</p>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                        <ul class="space-y-2">
+                            <li><a href="index.html" class="text-gray-600 dark:text-gray-400 hover:text-red-800 dark:hover:text-red-500">Home</a></li>
+                            <li><a href="category.html" class="text-gray-600 dark:text-gray-400 hover:text-red-800 dark:hover:text-red-500">Categories</a></li>
+                            <li><a href="sell-item.html" class="text-gray-600 dark:text-gray-400 hover:text-red-800 dark:hover:text-red-500">Sell an Item</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4">Help</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-gray-600 dark:text-gray-400 hover:text-red-800 dark:hover:text-red-500">FAQ</a></li>
+                            <li><a href="#" class="text-gray-600 dark:text-gray-400 hover:text-red-800 dark:hover:text-red-500">Contact Us</a></li>
+                            <li><a href="#" class="text-gray-600 dark:text-gray-400 hover:text-red-800 dark:hover:text-red-500">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-200 dark:border-gray-700 mt-8 pt-8 text-center text-gray-600 dark:text-gray-400">
+                <p>&copy; 2023 BidMaster. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Feather Icons
+        document.addEventListener('DOMContentLoaded', () => {
+            feather.replace();
+            
+            // Mobile menu toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            // Theme toggle
+            const themeToggle = document.getElementById('theme-toggle');
+            const html = document.documentElement;
+            
+            // Check for saved theme preference or use system preference
+            const savedTheme = localStorage.getItem('theme') || 
+                (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            
+            // Apply the saved theme
+            if (savedTheme === 'dark') {
+                html.classList.add('dark');
+            } else {
+                html.classList.remove('dark');
+            }
+            
+            // Toggle theme
+            themeToggle.addEventListener('click', () => {
+                html.classList.toggle('dark');
+                const currentTheme = html.classList.contains('dark') ? 'dark' : 'light';
+                localStorage.setItem('theme', currentTheme);
+                feather.replace(); // Re-initialize icons after theme change
+            });
+
+            // Profile menu toggle
+            const profileMenuButton = document.getElementById('profile-menu-button');
+            const profileDropdown = document.getElementById('profile-dropdown');
+            
+            if (profileMenuButton && profileDropdown) {
+                profileMenuButton.addEventListener('click', () => {
+                    profileDropdown.classList.toggle('hidden');
+                });
+                
+                // Close the dropdown when clicking outside
+                document.addEventListener('click', (event) => {
+                    if (!profileMenuButton.contains(event.target) && !profileDropdown.contains(event.target)) {
+                        profileDropdown.classList.add('hidden');
+                    }
+                });
+            }
+
+            // Initialize Image Swiper
+            const itemSwiper = new Swiper('.item-swiper', {
+                slidesPerView: 1,
+                spaceBetween: 0,
+                loop: true,
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                thumbs: {
+                    swiper: thumbnailSwiper
+                }
+            });
+
+            // Initialize Thumbnail Swiper
+            const thumbnailSwiper = new Swiper('.thumbnail-swiper', {
+                slidesPerView: 4,
+                spaceBetween: 10,
+                freeMode: true,
+                watchSlidesProgress: true,
+            });
+
+            itemSwiper.controller.control = thumbnailSwiper;
+            thumbnailSwiper.controller.control = itemSwiper;
+
+            // Share button toggle
+            const shareButton = document.getElementById('share-button');
+            const shareOptions = document.getElementById('share-options');
+            
+            shareButton.addEventListener('click', () => {
+                shareOptions.classList.toggle('hidden');
+            });
+            
+            // Copy link button
+            const copyLinkButton = document.getElementById('copy-link');
+            
+            copyLinkButton.addEventListener('click', () => {
+                navigator.clipboard.writeText(window.location.href).then(() => {
+                    alert('Link copied to clipboard!');
+                });
+            });
+            
+            // Watch button toggle
+            const watchButton = document.getElementById('watch-button');
+            
+            watchButton.addEventListener('click', () => {
+                const watchIcon = watchButton.querySelector('svg');
+                const watchText = watchButton.querySelector('span');
+                
+                if (watchIcon.classList.contains('fill-current')) {
+                    watchIcon.classList.remove('fill-current', 'text-red-500');
+                    watchText.textContent = 'Add to Watchlist';
+                } else {
+                    watchIcon.classList.add('fill-current', 'text-red-500');
+                    watchText.textContent = 'Remove from Watchlist';
+                }
+            });
+            
+            // Update countdown timer
+            function updateCountdown() {
+                const endTime = new Date('2023-12-31T15:00:00').getTime();
+                const now = new Date().getTime();
+                const diff = endTime - now;
+                
+                if (diff <= 0) {
+                    document.getElementById('time-left').textContent = 'Auction ended';
+                    return;
+                }
+                
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+                
+                document.getElementById('time-left').textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+            }
+            
+            // Initial countdown update
+            updateCountdown();
+            
+            // Update every second
+            setInterval(updateCountdown, 1000);
+            
+            // Populate bid history
+            const bidHistory = [
+                { user: 'jane_collector', amount: 1250, time: '3 hours ago' },
+                { user: 'john_smith', amount: 1200, time: '4 hours ago' },
+                { user: 'camera_guy', amount: 1150, time: '6 hours ago' },
+                { user: 'vintage_lover', amount: 1100, time: '8 hours ago' },
+                { user: 'photo_buff', amount: 1050, time: '10 hours ago' },
+                { user: 'collection_king', amount: 1000, time: '12 hours ago' },
+                { user: 'bidmaster_pro', amount: 950, time: '14 hours ago' },
+                { user: 'rare_finds', amount: 900, time: '16 hours ago' },
+                { user: 'auction_queen', amount: 850, time: '18 hours ago' },
+                { user: 'vintage_hunter', amount: 800, time: '20 hours ago' },
+            ];
+            
+            const bidHistoryContainer = document.getElementById('bid-history');
+            
+            // Show only first 5 bids initially
+            renderBidHistory(bidHistory.slice(0, 5));
+            
+            function renderBidHistory(bids) {
+                bidHistoryContainer.innerHTML = '';
+                
+                bids.forEach(bid => {
+                    const bidItem = document.createElement('li');
+                    bidItem.className = 'flex justify-between items-center text-sm';
+                    bidItem.innerHTML = `
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center mr-2">
+                                <span class="text-xs font-medium">${bid.user.charAt(0).toUpperCase()}</span>
+                            </div>
+                            <span>${bid.user}</span>
+                        </div>
+                        <div class="flex flex-col items-end">
+                            <span class="font-semibold">$${bid.amount.toLocaleString()}</span>
+                            <span class="text-xs text-gray-600 dark:text-gray-400">${bid.time}</span>
+                        </div>
+                    `;
+                    bidHistoryContainer.appendChild(bidItem);
+                });
+            }
+            
+            // Show all bids button
+            const showAllBidsButton = document.getElementById('show-all-bids');
+            let showingAllBids = false;
+            
+            showAllBidsButton.addEventListener('click', () => {
+                if (showingAllBids) {
+                    renderBidHistory(bidHistory.slice(0, 5));
+                    showAllBidsButton.textContent = 'Show all bids';
+                } else {
+                    renderBidHistory(bidHistory);
+                    showAllBidsButton.textContent = 'Show less';
+                }
+                showingAllBids = !showingAllBids;
+            });
+            
+            // Bid form submission
+            const bidForm = document.getElementById('bid-form');
+            
+            bidForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const bidAmount = document.getElementById('bid-amount').value;
+                alert(`Your bid of $${bidAmount} has been placed successfully!`);
+                
+                // Update current bid
+                document.getElementById('current-bid').textContent = `$${bidAmount}`;
+                
+                // Update bid count
+                const bidCount = parseInt(document.getElementById('bid-count').textContent) + 1;
+                document.getElementById('bid-count').textContent = `${bidCount} bids`;
+                
+                // Add new bid to history
+                const newBid = {
+                    user: 'you',
+                    amount: parseInt(bidAmount),
+                    time: 'just now'
+                };
+                
+                bidHistory.unshift(newBid);
+                
+                if (showingAllBids) {
+                    renderBidHistory(bidHistory);
+                } else {
+                    renderBidHistory(bidHistory.slice(0, 5));
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+

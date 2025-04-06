@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - BidMaster</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200 min-h-screen flex flex-col transition-colors duration-200">
+    <!-- Navigation -->
+    <nav class="bg-white dark:bg-gray-800 shadow-md">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-bold text-red-800 dark:text-red-500">BidMaster</a>
+                </div>
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="index.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-red-800 dark:hover:text-red-500 border-b-2 border-transparent hover:border-red-800 dark:hover:border-red-500 transition-all duration-200">Home</a>
+                    <a href="category.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-red-800 dark:hover:text-red-500 border-b-2 border-transparent hover:border-red-800 dark:hover:border-red-500 transition-all duration-200">Categories</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button id="theme-toggle" class="p-2 rounded-full text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none transform hover:scale-110 transition-transform duration-200">
+                        <i data-feather="moon" class="dark:hidden"></i>
+                        <i data-feather="sun" class="hidden dark:block"></i>
+                    </button>
+                    <button class="md:hidden focus:outline-none" id="mobile-menu-button">
+                        <i data-feather="menu"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div class="md:hidden hidden" id="mobile-menu">
+                <div class="px-2 pt-2 pb-3 space-y-1">
+                    <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-red-800 dark:hover:text-red-500">Home</a>
+                    <a href="category.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-red-800 dark:hover:text-red-500">Categories</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-grow container mx-auto px-4 py-12">
+        <div class="max-w-lg mx-auto bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+            <div class="p-6 md:p-8">
+                <div class="text-center mb-8">
+                    <h1 class="text-3xl font-bold mb-2">Create an Account</h1>
+                    <p class="text-gray-600 dark:text-gray-400">Join BidMaster to start bidding and selling</p>
+                </div>
+                
+                <form id="register-form" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="first-name" class="block text-sm font-medium mb-2">First Name</label>
+                            <input type="text" id="first-name" name="firstName" required class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 dark:bg-gray-700 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-red-800 dark:focus:ring-red-500">
+                        </div>
+                        <div>
+                            <label for="last-name" class="block text-sm font-medium mb-2">Last Name</label>
+                            <input type="text" id="last-name" name="lastName" required class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 dark:bg-gray-700 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-red-800 dark:focus:ring-red-500">
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label for="email" class="block text-sm font-medium mb-2">Email Address</label>
+                        <div class="relative">
+                            <i data-feather="mail" class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5"></i>
+                            <input type="email" id="email" name="email" required class="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 dark:bg-gray-700 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-red-800 dark:focus:ring-red-500">
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label for="password" class="block text-sm font-medium mb-2">Password</label>
+                        <div class="relative">
+                            <i data-feather="lock" class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5"></i>
+                            <input type="password" id="password" name="password" required class="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 dark:bg-gray-700 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-red-800 dark:focus:ring-red-500">
+                            <button type="button" id="toggle-password" class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 focus:outline-none">
+                                <i data-feather="eye" class="password-show h-5 w-5"></i>
+                                <i data-feather="eye-off" class="password-hide h-5 w-5 hidden"></i>
+                            </button>
+                        </div>
+                        <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">Password must be at least 8 characters long with at least one uppercase letter, one number and one special character.</p>
+                    </div>
+                    
+                    <div>
+                        <label for="confirm-password" class="block text-sm font-medium mb-2">Confirm Password</label>
+                        <div class="relative">
+                            <i data-feather="lock" class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5"></i>
+                            <input type="password" id="confirm-password" name="confirmPassword" required class="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 dark:bg-gray-700 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-red-800 dark:focus:ring-red-500">
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center">
+                        <input type="checkbox" id="terms" name="terms" required class="h-4 w-4 text-red-800 focus:ring-red-500 border-gray-300 rounded">
+                        <label for="terms" class="ml-2 block text-sm text-gray-700 dark:text-gray-300">
+                            I agree to the <a href="#" class="text-red-800 dark:text-red-500 hover:underline">Terms of Service</a> and <a href="#" class="text-red-800 dark:text-red-500 hover:underline">Privacy Policy</a>
+                        </label>
+                    </div>
+                    
+                    <div>
+                        <button type="submit" class="w-full bg-red-800 text-white py-3 rounded-lg hover:bg-red-700 transition-colors duration-200 font-medium transform hover:scale-[1.02]">
+                            Create Account
+                        </button>
+                    </div>
+                </form>
+                
+                <div class="mt-6">
+                    <div class="relative">
+                        <div class="absolute inset-0 flex items-center">
+                            <div class="w-full border-t border-gray-300 dark:border-gray-600"></div>
+                        </div>
+                        <div class="relative flex justify-center text-sm">
+                            <span class="px-2 bg-white dark:bg-gray-800 text-gray-500 dark:text-gray-400">Or continue with</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6 grid grid-cols-2 gap-3">
+                        <button type="button" class="flex justify-center items-center py-2 px-4 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors duration-200">
+                            <svg class="h-5 w-5 mr-2" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M12.545,12.151L12.545,12.151c0,1.054,0.855,1.909,1.909,1.909h3.536c-0.225,1.528-0.479,2.641-0.934,3.506 c-0.568,1.083-1.275,1.634-2.211,1.634c-0.674,0-1.561-0.5-2.608-1.491l-0.259-0.209c-1.728-1.345-3.321-2.706-3.321-5.535 c0-2.209,1.076-4.356,2.21-5.991c0.044-0.062,0.108-0.096,0.169-0.129c0.073-0.039,0.146-0.072,0.205-0.121 c0,0-0.043-0.011-0.06-0.015c-0.124-0.033-0.254-0.067-0.401-0.105l-0.219-0.054C9.9,5.42,9.37,5.307,8.925,5.139 c-0.58-0.22-1.263-0.505-1.513-0.751C7.351,4.193,7.442,3.879,7.54,3.538c0.122-0.425,0.304-1.062,0.423-1.567 c0.03-0.129,0.113-0.238,0.227-0.299c0.139-0.073,0.313-0.052,0.425,0.046c0.205,0.183,0.421,0.35,0.634,0.516 c0.241,0.187,0.474,0.367,0.705,0.552c0.158,0.13,0.361,0.202,0.568,0.202h1.531c0.206,0,0.41-0.072,0.568-0.202 c0.23-0.185,0.464-0.365,0.705-0.552c0.212-0.165,0.429-0.333,0.634-0.516c0.113-0.098,0.287-0.119,0.425-0.046 c0.113,0.061,0.197,0.17,0.227,0.299c0.119,0.505,0.301,1.142,0.423,1.567c0.097,0.341,0.189,0.655,0.127,0.85 c-0.25,0.246-0.933,0.531-1.513,0.751c-0.445,0.168-0.975,0.281-1.536,0.402l-0.219,0.054c-0.147,0.038-0.277,0.072-0.401,0.105 c-0.018,0.005-0.061,0.015-0.061,0.015c0.06,0.049,0.132,0.082,0.205,0.121c0.062,0.033,0.126,0.067,0.169,0.129 c1.134,1.635,2.21,3.782,2.21,5.991c0,2.829-1.593,4.19-3.321,5.535l-0.259,0.209c-1.046,0.991-1.934,1.491-2.608,1.491 c-0.935,0-1.643-0.551-2.211-1.634c-0.456-0.865-0.709-1.978-0.934-3.506h3.536C11.691,14.06,12.545,13.205,12.545,12.151z"></path>
+                            </svg>
+                            Google
+                        </button>
+                        <button type="button" class="flex justify-center items-center py-2 px-4 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors duration-200">
+                            <svg class="h-5 w-5 mr-2" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z" />
+                            </svg>
+                            Facebook
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="mt-8 text-center">
+                    <p class="text-sm text-gray-600 dark:text-gray-400">
+                        Already have an account?
+                        <a href="login.html" class="text-red-800 dark:text-red-500 font-medium hover:underline">Sign in</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-gray-800 shadow-inner py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between">
+                <div class="mb-6 md:mb-0">
+                    <h3 class="text-xl font-bold text-red-800 dark:text-red-500 mb-4">BidMaster</h3>
+                    <p class="text-gray-600 dark:text-gray-400 max-w-md">Your trusted platform for online auctions. Find unique items or sell your valuables to the highest bidder.</p>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                        <ul class="space-y-2">
+                            <li><a href="index.html" class="text-gray-600 dark:text-gray-400 hover:text-red-800 dark:hover:text-red-500">Home</a></li>
+                            <li><a href="category.html" class="text-gray-600 dark:text-gray-400 hover:text-red-800 dark:hover:text-red-500">Categories</a></li>
+                            <li><a href="sell-item.html" class="text-gray-600 dark:text-gray-400 hover:text-red-800 dark:hover:text-red-500">Sell an Item</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4">Help</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-gray-600 dark:text-gray-400 hover:text-red-800 dark:hover:text-red-500">FAQ</a></li>
+                            <li><a href="#" class="text-gray-600 dark:text-gray-400 hover:text-red-800 dark:hover:text-red-500">Contact Us</a></li>
+                            <li><a href="#" class="text-gray-600 dark:text-gray-400 hover:text-red-800 dark:hover:text-red-500">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-200 dark:border-gray-700 mt-8 pt-8 text-center text-gray-600 dark:text-gray-400">
+                <p>&copy; 2023 BidMaster. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Feather Icons
+        document.addEventListener('DOMContentLoaded', () => {
+            feather.replace();
+            
+            // Mobile menu toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            // Theme toggle
+            const themeToggle = document.getElementById('theme-toggle');
+            const html = document.documentElement;
+            
+            // Check for saved theme preference or use system preference
+            const savedTheme = localStorage.getItem('theme') || 
+                (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            
+            // Apply the saved theme
+            if (savedTheme === 'dark') {
+                html.classList.add('dark');
+            } else {
+                html.classList.remove('dark');
+            }
+            
+            // Toggle theme
+            themeToggle.addEventListener('click', () => {
+                html.classList.toggle('dark');
+                const currentTheme = html.classList.contains('dark') ? 'dark' : 'light';
+                localStorage.setItem('theme', currentTheme);
+                feather.replace(); // Re-initialize icons after theme change
+            });
+            
+            // Toggle password visibility
+            const togglePassword = document.getElementById('toggle-password');
+            const passwordInput = document.getElementById('password');
+            const passwordShow = document.querySelector('.password-show');
+            const passwordHide = document.querySelector('.password-hide');
+            
+            togglePassword.addEventListener('click', () => {
+                if (passwordInput.type === 'password') {
+                    passwordInput.type = 'text';
+                    passwordShow.classList.add('hidden');
+                    passwordHide.classList.remove('hidden');
+                } else {
+                    passwordInput.type = 'password';
+                    passwordShow.classList.remove('hidden');
+                    passwordHide.classList.add('hidden');
+                }
+            });
+            
+            // Form validation
+            const registerForm = document.getElementById('register-form');
+            const password = document.getElementById('password');
+            const confirmPassword = document.getElementById('confirm-password');
+            
+            registerForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Check if passwords match
+                if (password.value !== confirmPassword.value) {
+                    alert('Passwords do not match.');
+                    return;
+                }
+                
+                // Check password strength
+                const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+                if (!passwordRegex.test(password.value)) {
+                    alert('Password must be at least 8 characters long with at least one uppercase letter, one number and one special character.');
+                    return;
+                }
+                
+                // In a real application, you would send the form data to the server
+                // For this demo, we'll just redirect to the home page
+                
+                window.location.href = 'index.html';
+            });
+        });
+    </script>
+</body>
+</html>
+

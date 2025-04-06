@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - AuctionHub</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/auth.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <h1>Auction<span>Hub</span></h1>
+                    </a>
+                </div>
+                
+                <div class="search-bar">
+                    <form id="search-form">
+                        <input type="text" placeholder="Search for items..." id="search-input">
+                        <button type="submit">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
+                </div>
+                
+                <nav class="main-nav">
+                    <ul>
+                        <li class="dropdown">
+                            <a href="books.html">Books <i class="fas fa-chevron-down"></i></a>
+                            <div class="dropdown-menu">
+                                <a href="books.html?category=fiction">Fiction</a>
+                                <a href="books.html?category=non-fiction">Non-Fiction</a>
+                                <a href="books.html?category=rare">Rare & Collectible</a>
+                                <a href="books.html?category=children">Children's Books</a>
+                                <a href="books.html?category=academic">Academic</a>
+                            </div>
+                        </li>
+                        <li class="dropdown">
+                            <a href="furniture.html">Furniture <i class="fas fa-chevron-down"></i></a>
+                            <div class="dropdown-menu">
+                                <a href="furniture.html?category=living">Living Room</a>
+                                <a href="furniture.html?category=bedroom">Bedroom</a>
+                                <a href="furniture.html?category=dining">Dining</a>
+                                <a href="furniture.html?category=office">Office</a>
+                                <a href="furniture.html?category=outdoor">Outdoor</a>
+                            </div>
+                        </li>
+                        <li class="dropdown">
+                            <a href="electronics.html">Electronics <i class="fas fa-chevron-down"></i></a>
+                            <div class="dropdown-menu">
+                                <a href="electronics.html?category=computers">Computers</a>
+                                <a href="electronics.html?category=phones">Phones & Tablets</a>
+                                <a href="electronics.html?category=audio">Audio</a>
+                                <a href="electronics.html?category=tv">TVs & Displays</a>
+                                <a href="electronics.html?category=cameras">Cameras</a>
+                            </div>
+                        </li>
+                        <li><a href="current-bidding.html">Current Bidding</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="user-actions">
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                        <i class="fas fa-moon"></i>
+                        <i class="fas fa-sun"></i>
+                    </button>
+                    <div class="auth-buttons">
+                        <a href="login.html" class="btn btn-outline active">Login</a>
+                        <a href="register.html" class="btn btn-primary">Register</a>
+                    </div>
+                </div>
+                
+                <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu">
+            <div class="container">
+                <form class="mobile-search">
+                    <input type="text" placeholder="Search for items...">
+                    <button type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li class="mobile-dropdown">
+                            <a href="javascript:void(0)">Books <i class="fas fa-chevron-down"></i></a>
+                            <div class="mobile-dropdown-menu">
+                                <a href="books.html">All Books</a>
+                                <a href="books.html?category=fiction">Fiction</a>
+                                <a href="books.html?category=non-fiction">Non-Fiction</a>
+                                <a href="books.html?category=rare">Rare & Collectible</a>
+                                <a href="books.html?category=children">Children's Books</a>
+                            </div>
+                        </li>
+                        <li class="mobile-dropdown">
+                            <a href="javascript:void(0)">Furniture <i class="fas fa-chevron-down"></i></a>
+                            <div class="mobile-dropdown-menu">
+                                <a href="furniture.html">All Furniture</a>
+                                <a href="furniture.html?category=living">Living Room</a>
+                                <a href="furniture.html?category=bedroom">Bedroom</a>
+                                <a href="furniture.html?category=dining">Dining</a>
+                                <a href="furniture.html?category=office">Office</a>
+                            </div>
+                        </li>
+                        <li class="mobile-dropdown">
+                            <a href="javascript:void(0)">Electronics <i class="fas fa-chevron-down"></i></a>
+                            <div class="mobile-dropdown-menu">
+                                <a href="electronics.html">All Electronics</a>
+                                <a href="electronics.html?category=computers">Computers</a>
+                                <a href="electronics.html?category=phones">Phones & Tablets</a>
+                                <a href="electronics.html?category=audio">Audio</a>
+                                <a href="electronics.html?category=tv">TVs & Displays</a>
+                            </div>
+                        </li>
+                        <li><a href="current-bidding.html">Current Bidding</a></li>
+                        <li><a href="login.html" class="active">Login</a></li>
+                        <li><a href="register.html">Register</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="auth-container">
+        <div class="auth-card">
+            <div class="auth-header">
+                <h1>Welcome Back</h1>
+                <p>Sign in to your AuctionHub account</p>
+            </div>
+            
+            <form id="login-form" class="auth-form">
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <div class="input-with-icon">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <div
+### Comprehensive E-Commerce Auction Website with Dropdown Navigation
+
+I'll update the project with dropdown navigation for Books, Furniture, and Electronics categories, and add real images from the internet throughout the website.
+

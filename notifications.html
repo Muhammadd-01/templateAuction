@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications - AuctionHub</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/notifications.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <h1>Auction<span>Hub</span></h1>
+                    </a>
+                </div>
+                
+                <div class="search-bar">
+                    <form id="search-form">
+                        <input type="text" placeholder="Search for items..." id="search-input">
+                        <button type="submit">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
+                    <div id="search-results" class="search-results"></div>
+                </div>
+                
+                <nav class="main-nav">
+                    <ul>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle">Categories <i class="fas fa-chevron-down"></i></a>
+                            <div class="dropdown-menu">
+                                <a href="books.html">Books</a>
+                                <a href="furniture.html">Furniture</a>
+                                <a href="electronics.html">Electronics</a>
+                            </div>
+                        </li>
+                        <li><a href="current-bidding.html">Current Bidding</a></li>
+                        <li><a href="sell-item.html">Sell Item</a></li>
+                        <li><a href="notifications.html" class="active">Notifications</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="user-actions">
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                        <i class="fas fa-moon"></i>
+                        <i class="fas fa-sun"></i>
+                    </button>
+                    <div class="auth-buttons">
+                        <a href="login.html" class="btn btn-outline">Login</a>
+                        <a href="register.html" class="btn btn-primary">Register</a>
+                    </div>
+                </div>
+                
+                <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu">
+            <div class="container">
+                <form class="mobile-search">
+                    <input type="text" placeholder="Search for items...">
+                    <button type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li class="mobile-dropdown">
+                            <a href="#" class="mobile-dropdown-toggle">Categories <i class="fas fa-chevron-down"></i></a>
+                            <ul class="mobile-dropdown-menu">
+                                <li><a href="books.html">Books</a></li>
+                                <li><a href="furniture.html">Furniture</a></li>
+                                <li><a href="electronics.html">Electronics</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="current-bidding.html">Current Bidding</a></li>
+                        <li><a href="sell-item.html">Sell Item</a></li>
+                        <li><a href="notifications.html" class="active">Notifications</a></li>
+                        <li><a href="login.html">Login</a></li>
+                        <li><a href="register.html">Register</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1>Notifications</h1>
+                <p>Stay updated with your auction activities</p>
+            </div>
+        </section>
+
+        <!-- Notifications Content -->
+        <section class="notifications-section">
+            <div class="container">
+                <!-- Notification Filters -->
+                <div class="notification-filters">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="bids">Bids</button>
+                    <button class="filter-btn" data-filter="auctions">Auctions</button>
+                    <button class="filter-btn" data-filter="watchlist">Watchlist</button>
+                    <button class="filter-btn" data-filter="messages">Messages</button>
+                </div>
+
+                <!-- Notifications List -->
+                <div class="notifications-list">
+                    <!-- Today's Notifications -->
+                    <div class="notification-group">
+                        <h2 class="notification-date">Today</h2>
+                        
+                        <!-- Notification Item -->
+                        <div class="notification-item unread" data-type="bids">
+                            <div class="notification-icon bid">
+                                <i class="fas fa-gavel"></i>
+                            </div>
+                            <div class="notification-content">
+                                <div class="notification-header">
+                                    <h3>You've been outbid!</h3>
+                                    <span class="notification-time">10 minutes ago</span>
+                                </div>
+                                <p>Someone placed a higher bid of $1,280 on the Vintage Leica Camera.</p>
+                                <div class="notification-actions">
+                                    <a href="item-details.html" class="btn-text">View Item <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Notification Item -->
+                        <div class="notification-item unread" data-type="auctions">
+                            <div class="notification-icon success">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="notification-content">
+                                <div class="notification-header">
+                                    <h3>Your auction was successfully listed!</h3>
+                                    <span class="notification-time">3 hours ago</span>
+                                </div>
+                                <p>Your Vintage Vinyl Record Collection has been approved and is now live.</p>
+                                <div class="notification-actions">
+                                    <a href="#" class="btn-text">View Auction <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Notification Item -->
+                        <div class="notification-item" data-type="watchlist">
+                            <div class="notification-icon watchlist">
+                                <i class="fas fa-eye"></i>
+                            </div>
+                            <div class="notification-content">
+                                <div class="notification-header">
+                                    <h3>Watchlist item ending soon</h3>
+                                    <span class="notification-time">6 hours ago</span>
+                                </div>
+                                <p>The Antique Pocket Watch you're watching ends in less than 24 hours.</p>
+                                <div class="notification-actions">
+                                    <a href="item-details.html" class="btn-text">View Item <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Yesterday's Notifications -->
+                    <div class="notification-group">
+                        <h2 class="notification-date">Yesterday</h2>
+                        
+                        <!-- Notification Item -->
+                        <div class="notification-item" data-type="messages">
+                            <div class="notification-icon message">
+                                <i class="fas fa-comment-alt"></i>
+                            </div>
+                            <div class="notification-content">
+                                <div class="notification-header">
+                                    <h3>New message from seller</h3>
+                                    <span class="notification-time">Yesterday</span>
+                                </div>
+                                <p>Michael Thompson replied to your question about the Vintage Leica Camera.</p>
+                                <div class="notification-actions">
+                                    <a href="#" class="btn-text">Read Message <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Notification Item -->
+                        <div class="notification-item" data-type="auctions">
+                            <div class="notification-icon warning">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <div class="notification-content">
+                                <div class="notification-header">
+                                    <h3>Payment reminder</h3>
+                                    <span class="notification-time">Yesterday</span>
+                                </div>
+                                <p>Please complete your payment for the Vintage Camera Lens you won. Payment is due within 48 hours.</p>
+                                <div class="notification-actions">
+                                    <a href="#" class="btn-text">Complete Payment <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Earlier Notifications -->
+                    <div class="notification-group">
+                        <h2 class="notification-date">Earlier</h2>
+                        
+                        <!-- Notification Item -->
+                        <div class="notification-item" data-type="bids">
+                            <div class="notification-icon success">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <div class="notification-content">
+                                <div class="notification-header">
+                                    <h3>Congratulations! You won an auction</h3>
+                                    <span class="notification-time">3 days ago</span>
+                                </div>
+                                <p>You were the highest bidder on the Vintage Camera Lens. Please complete your payment.</p>
+                                <div class="notification-actions">
+                                    <a href="#" class="btn-text">View Details <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Notification Item -->
+                        <div class="notification-item" data-type="watchlist">
+                            <div class="notification-icon info">
+                                <i class="fas fa-tag"></i>
+                            </div>
+                            <div class="notification-content">
+                                <div class="notification-header">
+                                    <h3>Price drop on your watchlist item</h3>
+                                    <span class="notification-time">5 days ago</span>
+                                </div>
+                                <p>The seller has reduced the starting price of the Rare Comic Book Collection you're watching.</p>
+                                <div class="notification-actions">
+                                    <a href="#" class="btn-text">View Item <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Notification Item -->
+                        <div class="notification-item" data-type="messages">
+                            <div class="notification-icon default">
+                                <i class="fas fa-bell"></i>
+                            </div>
+                            <div class="notification-content">
+                                <div class="notification-header">
+                                    <h3>Welcome to AuctionHub!</h3>
+                                    <span class="notification-time">1 week ago</span>
+                                </div>
+                                <p>Thank you for joining AuctionHub. Start exploring auctions or list your first item.</p>
+                                <div class="notification-actions">
+                                    <a href="index.html" class="btn-text">Explore Auctions <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Load More Button -->
+                <div class="load-more">
+                    <button class="btn btn-outline">Load More</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>Auction<span>Hub</span></h2>
+                    <p>Your trusted platform for online auctions. Find unique items or sell your valuables to the highest bidder.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-links-column">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="books.html">Books</a></li>
+                            <li><a href="furniture.html">Furniture</a></li>
+                            <li><a href="electronics.html">Electronics</a></li>
+                            <li><a href="current-bidding.html">Current Bidding</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-column">
+                        <h3>Account</h3>
+                        <ul>
+                            <li><a href="login.html">Login</a></li>
+                            <li><a href="register.html">Register</a></li>
+                            <li><a href="#">My Bids</a></li>
+                            <li><a href="#">Watchlist</a></li>
+                            <li><a href="#">Settings</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-column">
+                        <h3>Help</h3>
+                        <ul>
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#">Shipping</a></li>
+                            <li><a href="#">Returns</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 AuctionHub. All rights reserved.</p>
+                <div class="payment-methods">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-amex"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/notifications.js"></script>
+</body>
+</html>
+
